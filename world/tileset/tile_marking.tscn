@@ -1,0 +1,1466 @@
+[gd_scene load_steps=4 format=3 uid="uid://dquee2mb3c3iq"]
+
+[ext_resource type="Script" path="res://world/tileset/tile_marking.gd" id="1_vxvso"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_pjmlr"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qbgkd"]
+a = Vector2(-1.88833e-05, -432)
+b = Vector2(1.88833e-05, 432)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_vxvso")
+
+[node name="Tile" type="Node2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile2" type="Node2D" parent="."]
+position = Vector2(16, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile2"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile2"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile3" type="Node2D" parent="."]
+position = Vector2(32, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile3"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile3"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile4" type="Node2D" parent="."]
+position = Vector2(48, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile4"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile4"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile5" type="Node2D" parent="."]
+position = Vector2(64, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile5"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile5"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile6" type="Node2D" parent="."]
+position = Vector2(80, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile6"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile6"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile7" type="Node2D" parent="."]
+position = Vector2(96, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile7"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile7"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile8" type="Node2D" parent="."]
+position = Vector2(112, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile8"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile8"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile9" type="Node2D" parent="."]
+position = Vector2(128, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile9"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile9"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile10" type="Node2D" parent="."]
+position = Vector2(144, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile10"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile10"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile11" type="Node2D" parent="."]
+position = Vector2(160, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile11"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile11"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile12" type="Node2D" parent="."]
+position = Vector2(176, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile12"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile12"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile13" type="Node2D" parent="."]
+position = Vector2(192, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile13"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile13"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile14" type="Node2D" parent="."]
+position = Vector2(208, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile14"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile14"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile15" type="Node2D" parent="."]
+position = Vector2(224, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile15"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile15"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile16" type="Node2D" parent="."]
+position = Vector2(240, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile16"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile16"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile17" type="Node2D" parent="."]
+position = Vector2(256, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile17"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile17"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile18" type="Node2D" parent="."]
+position = Vector2(272, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile18"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile18"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile19" type="Node2D" parent="."]
+position = Vector2(288, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile19"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile19"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile20" type="Node2D" parent="."]
+position = Vector2(304, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile20"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile20"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile21" type="Node2D" parent="."]
+position = Vector2(320, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile21"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile21"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile22" type="Node2D" parent="."]
+position = Vector2(336, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile22"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile22"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile23" type="Node2D" parent="."]
+position = Vector2(352, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile23"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile23"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile24" type="Node2D" parent="."]
+position = Vector2(368, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile24"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile24"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile25" type="Node2D" parent="."]
+position = Vector2(384, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile25"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile25"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile26" type="Node2D" parent="."]
+position = Vector2(400, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile26"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile26"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile27" type="Node2D" parent="."]
+position = Vector2(416, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile27"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile27"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile28" type="Node2D" parent="."]
+position = Vector2(432, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile28"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile28"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile29" type="Node2D" parent="."]
+position = Vector2(-432, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile29"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile29"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile56" type="Node2D" parent="."]
+position = Vector2(0, -16)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile56"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile56"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile57" type="Node2D" parent="."]
+position = Vector2(0, -32)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile57"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile57"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile58" type="Node2D" parent="."]
+position = Vector2(0, -48)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile58"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile58"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile59" type="Node2D" parent="."]
+position = Vector2(0, -64)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile59"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile59"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile60" type="Node2D" parent="."]
+position = Vector2(0, -80)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile60"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile60"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile61" type="Node2D" parent="."]
+position = Vector2(0, -96)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile61"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile61"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile62" type="Node2D" parent="."]
+position = Vector2(0, -112)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile62"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile62"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile63" type="Node2D" parent="."]
+position = Vector2(0, -128)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile63"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile63"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile64" type="Node2D" parent="."]
+position = Vector2(0, -144)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile64"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile64"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile65" type="Node2D" parent="."]
+position = Vector2(0, -160)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile65"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile65"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile66" type="Node2D" parent="."]
+position = Vector2(0, -176)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile66"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile66"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile67" type="Node2D" parent="."]
+position = Vector2(0, -192)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile67"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile67"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile68" type="Node2D" parent="."]
+position = Vector2(0, -208)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile68"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile68"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile69" type="Node2D" parent="."]
+position = Vector2(0, -224)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile69"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile69"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile70" type="Node2D" parent="."]
+position = Vector2(0, -240)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile70"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile70"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile71" type="Node2D" parent="."]
+position = Vector2(0, -256)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile71"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile71"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile72" type="Node2D" parent="."]
+position = Vector2(0, -272)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile72"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile72"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile73" type="Node2D" parent="."]
+position = Vector2(0, -288)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile73"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile73"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile74" type="Node2D" parent="."]
+position = Vector2(0, -304)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile74"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile74"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile75" type="Node2D" parent="."]
+position = Vector2(0, -320)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile75"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile75"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile76" type="Node2D" parent="."]
+position = Vector2(0, -336)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile76"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile76"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile77" type="Node2D" parent="."]
+position = Vector2(0, -352)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile77"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile77"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile78" type="Node2D" parent="."]
+position = Vector2(0, -368)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile78"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile78"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile79" type="Node2D" parent="."]
+position = Vector2(0, -384)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile79"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile79"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile80" type="Node2D" parent="."]
+position = Vector2(0, 384)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile80"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile80"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile81" type="Node2D" parent="."]
+position = Vector2(0, 368)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile81"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile81"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile82" type="Node2D" parent="."]
+position = Vector2(0, 352)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile82"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile82"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile83" type="Node2D" parent="."]
+position = Vector2(0, 336)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile83"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile83"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile84" type="Node2D" parent="."]
+position = Vector2(0, 320)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile84"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile84"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile85" type="Node2D" parent="."]
+position = Vector2(0, 304)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile85"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile85"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile86" type="Node2D" parent="."]
+position = Vector2(0, 288)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile86"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile86"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile87" type="Node2D" parent="."]
+position = Vector2(0, 272)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile87"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile87"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile88" type="Node2D" parent="."]
+position = Vector2(0, 256)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile88"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile88"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile89" type="Node2D" parent="."]
+position = Vector2(0, 240)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile89"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile89"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile90" type="Node2D" parent="."]
+position = Vector2(0, 224)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile90"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile90"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile91" type="Node2D" parent="."]
+position = Vector2(0, 208)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile91"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile91"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile92" type="Node2D" parent="."]
+position = Vector2(0, 192)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile92"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile92"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile93" type="Node2D" parent="."]
+position = Vector2(0, 176)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile93"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile93"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile94" type="Node2D" parent="."]
+position = Vector2(0, 160)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile94"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile94"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile95" type="Node2D" parent="."]
+position = Vector2(0, 144)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile95"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile95"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile96" type="Node2D" parent="."]
+position = Vector2(0, 128)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile96"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile96"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile97" type="Node2D" parent="."]
+position = Vector2(0, 112)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile97"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile97"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile98" type="Node2D" parent="."]
+position = Vector2(0, 96)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile98"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile98"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile99" type="Node2D" parent="."]
+position = Vector2(0, 80)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile99"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile99"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile100" type="Node2D" parent="."]
+position = Vector2(0, 64)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile100"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile100"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile101" type="Node2D" parent="."]
+position = Vector2(0, 48)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile101"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile101"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile102" type="Node2D" parent="."]
+position = Vector2(0, 32)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile102"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile102"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile103" type="Node2D" parent="."]
+position = Vector2(0, 16)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile103"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile103"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile30" type="Node2D" parent="."]
+position = Vector2(-416, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile30"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile30"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile31" type="Node2D" parent="."]
+position = Vector2(-400, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile31"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile31"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile32" type="Node2D" parent="."]
+position = Vector2(-384, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile32"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile32"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile33" type="Node2D" parent="."]
+position = Vector2(-368, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile33"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile33"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile34" type="Node2D" parent="."]
+position = Vector2(-352, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile34"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile34"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile35" type="Node2D" parent="."]
+position = Vector2(-336, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile35"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile35"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile36" type="Node2D" parent="."]
+position = Vector2(-320, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile36"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile36"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile37" type="Node2D" parent="."]
+position = Vector2(-304, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile37"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile37"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile38" type="Node2D" parent="."]
+position = Vector2(-288, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile38"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile38"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile39" type="Node2D" parent="."]
+position = Vector2(-272, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile39"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile39"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile40" type="Node2D" parent="."]
+position = Vector2(-256, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile40"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile40"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile41" type="Node2D" parent="."]
+position = Vector2(-240, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile41"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile41"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile42" type="Node2D" parent="."]
+position = Vector2(-224, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile42"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile42"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile43" type="Node2D" parent="."]
+position = Vector2(-208, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile43"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile43"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile44" type="Node2D" parent="."]
+position = Vector2(-192, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile44"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile44"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile45" type="Node2D" parent="."]
+position = Vector2(-176, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile45"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile45"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile46" type="Node2D" parent="."]
+position = Vector2(-160, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile46"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile46"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile47" type="Node2D" parent="."]
+position = Vector2(-144, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile47"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile47"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile48" type="Node2D" parent="."]
+position = Vector2(-128, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile48"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile48"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile49" type="Node2D" parent="."]
+position = Vector2(-112, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile49"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile49"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile50" type="Node2D" parent="."]
+position = Vector2(-96, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile50"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile50"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile51" type="Node2D" parent="."]
+position = Vector2(-80, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile51"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile51"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile52" type="Node2D" parent="."]
+position = Vector2(-64, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile52"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile52"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile53" type="Node2D" parent="."]
+position = Vector2(-48, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile53"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile53"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile54" type="Node2D" parent="."]
+position = Vector2(-32, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile54"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile54"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Tile55" type="Node2D" parent="."]
+position = Vector2(-16, 0)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Tile55"]
+modulate = Color(1, 1, 1, 0.141176)
+scale = Vector2(16, 16)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Tile55"]
+modulate = Color(1, 1, 1, 0.141176)
+position = Vector2(2.98023e-08, 2.98023e-08)
+scale = Vector2(14, 14)
+mesh = SubResource("QuadMesh_pjmlr")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_qbgkd")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("SegmentShape2D_qbgkd")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

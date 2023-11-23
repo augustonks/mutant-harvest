@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dp0ley5v6er2v"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="1_srn8m"]
+[ext_resource type="Texture2D" uid="uid://c8xdvkpy3qcy3" path="res://UI/inventory/asset/tool_watercan.png" id="2_oeiuw"]
+
+[resource]
+script = ExtResource("1_srn8m")
+name = "water_can"
+texture = ExtResource("2_oeiuw")
+type = "tool"
+stockable = true

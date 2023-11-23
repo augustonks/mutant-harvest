@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://8w88dticq6jy"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="1_ch3i0"]
+[ext_resource type="Texture2D" uid="uid://b0jhxekl0g5l3" path="res://UI/inventory/asset/food_coquinhagelada.png" id="2_us2lc"]
+
+[resource]
+script = ExtResource("1_ch3i0")
+name = "food_coquinhagelada"
+texture = ExtResource("2_us2lc")
+type = "food"
+stockable = true
+quantity = 999
+properties = {
+"seed_stages": 0
+}

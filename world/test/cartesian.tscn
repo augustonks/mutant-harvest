@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhqxakm7cu2ja"]
+
+[ext_resource type="Script" path="res://world/test/cartesian.gd" id="1_b3auv"]
+
+[node name="cartesian" type="Node2D"]
+script = ExtResource("1_b3auv")

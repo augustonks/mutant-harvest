@@ -1,0 +1,13 @@
+res://test.gdshader
+res://world/day_config/tileset.tres
+res://UI/inventory/item/flower_redflower.tres
+res://UI/inventory/item/seed_redflower.tres
+res://UI/inventory/item/plant_wall_nut.tres
+res://UI/inventory/item/plant_sunflower.tres
+res://UI/inventory/item/vegetable_potato.tres
+res://UI/inventory/item/seed_pea.tres
+res://UI/inventory/item/plant_peashooter.tres
+res://UI/inventory/player_inventory/player_inventory.tres
+res://world/area/farm.tscn
+res://world/area/lab_area.tscn
+res://world/area/well_river.tscn

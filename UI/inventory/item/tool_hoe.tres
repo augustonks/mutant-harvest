@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bg21xla6kdka"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="1_pneel"]
+[ext_resource type="Texture2D" uid="uid://b1dsttf6xhiyg" path="res://UI/inventory/asset/tool_hoe.png" id="2_0gb4y"]
+
+[resource]
+script = ExtResource("1_pneel")
+name = "hoe"
+texture = ExtResource("2_0gb4y")
+type = "tool"
+stockable = false

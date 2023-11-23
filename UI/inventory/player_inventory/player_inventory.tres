@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryData" load_steps=8 format=3 uid="uid://c66an45bbb4yo"]
+
+[ext_resource type="Resource" uid="uid://bg21xla6kdka" path="res://UI/inventory/item/tool_hoe.tres" id="1_f6fg1"]
+[ext_resource type="Resource" uid="uid://dp0ley5v6er2v" path="res://UI/inventory/item/tool_watercan.tres" id="2_luo6b"]
+[ext_resource type="Script" path="res://UI/inventory/inventory_data.gd" id="4_1pl1k"]
+[ext_resource type="Resource" uid="uid://cajn2b4k1dmyi" path="res://UI/inventory/item/plant_wall_nut.tres" id="4_ipjk8"]
+[ext_resource type="Resource" uid="uid://dldlav1i4ahty" path="res://UI/inventory/item/plant_sunflower.tres" id="4_x48jg"]
+[ext_resource type="Resource" uid="uid://cye7fhsfb2y5e" path="res://UI/inventory/item/seed_pea.tres" id="6_l2f5b"]
+[ext_resource type="Resource" uid="uid://dqjybtv3nd3br" path="res://UI/inventory/item/plant_peashooter.tres" id="12_b2mlp"]
+
+[resource]
+script = ExtResource("4_1pl1k")
+items = Array[Resource("res://UI/inventory/item_data.gd")]([ExtResource("1_f6fg1"), ExtResource("2_luo6b"), ExtResource("12_b2mlp"), ExtResource("4_ipjk8"), ExtResource("4_x48jg"), null, ExtResource("6_l2f5b"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])

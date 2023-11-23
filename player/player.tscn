@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://dwxv8b50eqo61"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_eyp0r"]
+[ext_resource type="PackedScene" uid="uid://dl65n12uex07w" path="res://UI/inventory/player_inventory/item_manager.tscn" id="2_owb74"]
+[ext_resource type="PackedScene" uid="uid://dabvkfq1d7wpk" path="res://state_machine/state_machine.tscn" id="3_qt1tf"]
+[ext_resource type="Script" path="res://player/states/move.gd" id="4_kfcfi"]
+[ext_resource type="Script" path="res://player/states/idle.gd" id="5_fky25"]
+[ext_resource type="Script" path="res://player/states/use_tool.gd" id="6_bu2um"]
+[ext_resource type="Texture2D" uid="uid://ctl67w1trooda" path="res://cat.png" id="7_bqi8u"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bjp7s"]
+
+[sub_resource type="Animation" id="Animation_w32m6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shadow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(19.0125, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shadow:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ai5yl"]
+_data = {
+"RESET": SubResource("Animation_w32m6")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_58sw6"]
+radius = 3.0
+height = 18.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 0
+motion_mode = 1
+script = ExtResource("1_eyp0r")
+
+[node name="Shadow" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 0, 0.164706)
+position = Vector2(-1, 1)
+scale = Vector2(19.0125, 8)
+mesh = SubResource("SphereMesh_bjp7s")
+
+[node name="ItemManager" parent="." instance=ExtResource("2_owb74")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ai5yl")
+}
+
+[node name="StateMachine" parent="." instance=ExtResource("3_qt1tf")]
+
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "use_tool_state")]
+script = ExtResource("4_kfcfi")
+idle_state = NodePath("../Idle")
+use_tool_state = NodePath("../UseTool")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "use_tool_state")]
+script = ExtResource("5_fky25")
+move_state = NodePath("../Move")
+use_tool_state = NodePath("../UseTool")
+
+[node name="UseTool" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+script = ExtResource("6_bu2um")
+idle_state = NodePath("../Idle")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -12)
+scale = Vector2(0.0270889, 0.0349852)
+texture = ExtResource("7_bqi8u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.504517, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_58sw6")

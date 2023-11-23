@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cqedmk4om8d0y"]
+
+[ext_resource type="Resource" uid="uid://b3l1o5nfntgdt" path="res://UI/inventory/item/fruit_pedemaca.tres" id="1_isscs"]
+[ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="2_gvvjp"]
+[ext_resource type="Texture2D" uid="uid://dgpe32cq5j1hf" path="res://crop/asset/pedemaca.png" id="3_3828b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lmyg"]
+atlas = ExtResource("3_3828b")
+region = Rect2(0, 0, 16, 32)
+
+[resource]
+script = ExtResource("2_gvvjp")
+name = "seed_pedemaca"
+texture = SubResource("AtlasTexture_8lmyg")
+type = "seed"
+crop = ExtResource("1_isscs")
+stockable = true
+quantity = 1
+properties = {
+"seed_stages": 16
+}

@@ -1,0 +1,146 @@
+[gd_scene load_steps=22 format=3 uid="uid://cilbue680h4lw"]
+
+[ext_resource type="Script" path="res://zombie/zombie_base.gd" id="1_bny6w"]
+[ext_resource type="Texture2D" uid="uid://cnri2oj5trhqr" path="res://zombie/asset/zumbi.png" id="2_8iqr0"]
+[ext_resource type="PackedScene" uid="uid://bj60qwwu0o65i" path="res://component/HealthComponent/health_component.tscn" id="3_tlx1s"]
+[ext_resource type="PackedScene" uid="uid://br3x88sjxtke0" path="res://component/hurtbox/hurtbox.tscn" id="4_5ppou"]
+[ext_resource type="PackedScene" uid="uid://d2ooaqa006kgx" path="res://component/hitbox/hitbox.tscn" id="5_10ns3"]
+[ext_resource type="PackedScene" uid="uid://dabvkfq1d7wpk" path="res://state_machine/state_machine.tscn" id="6_glddn"]
+[ext_resource type="Script" path="res://zombie/states/Walk.gd" id="7_kvq1x"]
+[ext_resource type="Script" path="res://zombie/states/Eat.gd" id="8_8ex36"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rh5mf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqsqv"]
+atlas = ExtResource("2_8iqr0")
+region = Rect2(0, 0, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5eb4"]
+atlas = ExtResource("2_8iqr0")
+region = Rect2(21, 0, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v84r"]
+atlas = ExtResource("2_8iqr0")
+region = Rect2(42, 0, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byr3u"]
+atlas = ExtResource("2_8iqr0")
+region = Rect2(0, 34, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mab8t"]
+atlas = ExtResource("2_8iqr0")
+region = Rect2(21, 34, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q62r4"]
+atlas = ExtResource("2_8iqr0")
+region = Rect2(42, 34, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvr0f"]
+atlas = ExtResource("2_8iqr0")
+region = Rect2(0, 68, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_557v5"]
+atlas = ExtResource("2_8iqr0")
+region = Rect2(21, 68, 21, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2oi0p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqsqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5eb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v84r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byr3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mab8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q62r4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvr0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_557v5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecw01"]
+size = Vector2(8, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dghuc"]
+size = Vector2(10, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqmje"]
+size = Vector2(11, 15)
+
+[node name="Zombie" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_bny6w")
+
+[node name="Shadow" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 0, 0.164706)
+position = Vector2(1, -1)
+scale = Vector2(10.2594, 6.10626)
+mesh = SubResource("SphereMesh_rh5mf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -13)
+sprite_frames = SubResource("SpriteFrames_2oi0p")
+autoplay = "default"
+frame_progress = 0.388015
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_ecw01")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_tlx1s")]
+position = Vector2(0, -8)
+hp = 10
+
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("health") instance=ExtResource("4_5ppou")]
+position = Vector2(0, -8)
+collision_layer = 8
+collision_mask = 32
+health = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_dghuc")
+
+[node name="Hitbox" parent="." instance=ExtResource("5_10ns3")]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0.5, -7.5)
+shape = SubResource("RectangleShape2D_bqmje")
+
+[node name="StateMachine" parent="." instance=ExtResource("6_glddn")]
+
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("eat_state", "hitbox")]
+script = ExtResource("7_kvq1x")
+eat_state = NodePath("../Eat")
+hitbox = NodePath("../../Hitbox")
+speed = 5
+
+[node name="Eat" type="Node" parent="StateMachine" node_paths=PackedStringArray("walk", "hitbox")]
+script = ExtResource("8_8ex36")
+walk = NodePath("../Walk")
+hitbox = NodePath("../../Hitbox")
+
+[node name="EatInterval" type="Timer" parent="StateMachine/Eat"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="StateMachine/Eat/EatInterval" to="StateMachine/Eat" method="_on_eat_interval_timeout"]

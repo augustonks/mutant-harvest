@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl65n12uex07w"]
+
+[ext_resource type="Script" path="res://UI/inventory/player_inventory/item_manager.gd" id="1_6u6pm"]
+[ext_resource type="Resource" uid="uid://c66an45bbb4yo" path="res://UI/inventory/player_inventory/player_inventory.tres" id="2_3laje"]
+
+[node name="ItemManager" type="Node2D"]
+script = ExtResource("1_6u6pm")
+inventory = ExtResource("2_3laje")

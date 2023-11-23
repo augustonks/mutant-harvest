@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cklki41dn30j0"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="1_bhj1m"]
+[ext_resource type="Resource" uid="uid://cobofbn48en51" path="res://UI/inventory/item/flower_redflower.tres" id="1_q325p"]
+[ext_resource type="Texture2D" uid="uid://wuigh73lvbba" path="res://crop/asset/redflower.png" id="2_8vvkh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxun7"]
+atlas = ExtResource("2_8vvkh")
+region = Rect2(0, 15, 16, 16)
+
+[resource]
+script = ExtResource("1_bhj1m")
+name = "seed_redflower"
+texture = SubResource("AtlasTexture_qxun7")
+type = "seed"
+crop = ExtResource("1_q325p")
+stockable = true
+quantity = 1
+properties = {
+"seed_stages": 4
+}

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cobofbn48en51"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="1_d34ia"]
+[ext_resource type="Texture2D" uid="uid://wuigh73lvbba" path="res://crop/asset/redflower.png" id="2_ngioi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edlke"]
+atlas = ExtResource("2_ngioi")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_d34ia")
+name = "flower_redflower"
+texture = SubResource("AtlasTexture_edlke")
+type = "flower"
+stockable = true
+quantity = 1
+properties = {
+"seed_stages": 0
+}

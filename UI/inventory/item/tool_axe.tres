@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dg3jagr56ihuj"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="1_lylle"]
+[ext_resource type="Texture2D" uid="uid://b1dsttf6xhiyg" path="res://UI/inventory/asset/tool_hoe.png" id="2_k5orh"]
+
+[resource]
+script = ExtResource("1_lylle")
+name = "tool_axe"
+texture = ExtResource("2_k5orh")
+type = "tool"
+stockable = false

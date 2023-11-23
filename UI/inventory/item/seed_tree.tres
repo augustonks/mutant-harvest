@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://62gi4q7gceae"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="1_hixgs"]
+[ext_resource type="Texture2D" uid="uid://v5qr4dwevnm3" path="res://UI/inventory/asset/fruit3.png" id="2_y84g5"]
+
+[resource]
+script = ExtResource("1_hixgs")
+name = "seed_tree"
+texture = ExtResource("2_y84g5")
+type = "tree_seed"
+stockable = true

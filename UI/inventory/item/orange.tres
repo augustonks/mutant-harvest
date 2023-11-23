@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://b6xfo3m6fytn0"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="1_avxh5"]
+[ext_resource type="Texture2D" uid="uid://b3cdffcqdo15q" path="res://UI/inventory/asset/fruit2.png" id="2_fr5pa"]
+
+[resource]
+script = ExtResource("1_avxh5")
+name = "orange"
+texture = ExtResource("2_fr5pa")
+type = "seed"
