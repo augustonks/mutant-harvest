@@ -1,7 +1,7 @@
 class_name CropManager
 extends Node2D
 
-var seed: ItemData
+var seed_item: ItemData
 var stages: int
 var actual_stage = 0
 var is_growth := false
@@ -15,15 +15,15 @@ var tile_position: Vector2i
 
 
 func _ready():
-	stages = seed.properties.seed_stages
+	stages = seed_item.properties.seed_item_stages
 	Game.connect("new_day", grow)
-	final_crop = load("res://UI/inventory/item/" + seed.crop.name + ".tres")
-	sprite.texture = seed.texture.atlas
+	final_crop = load("res://UI/inventory/item/" + seed_item.crop.name + ".tres")
+	sprite.texture = seed_item.texture.atlas
 	cell_width = sprite.texture.get_width() / stages
 	cell_heigth = sprite.texture.get_height()
 
 
-func _process(delta):
+func _process(_delta):
 	sprite.region_rect = Rect2(
 		actual_stage * cell_width,
 		0,

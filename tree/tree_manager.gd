@@ -8,6 +8,10 @@ extends StaticBody2D
 var tile_position: Vector2i
 var fell = false
 
+func _ready():
+	animation_player.play("default")
+	animation_player.seek(randf_range(0, 5))
+
 func hit():
 	if hp <= 1:
 		if !fell:

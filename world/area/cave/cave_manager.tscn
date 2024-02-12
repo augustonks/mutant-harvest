@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://43lp2gu5t4e6"]
+
+[ext_resource type="PackedScene" uid="uid://cxu3nd2a0d430" path="res://world/area/cave/0.tscn" id="1_gqhxq"]
+[ext_resource type="Script" path="res://world/area/cave/cave_manager.gd" id="1_rgosh"]
+
+[node name="CaveManager" type="Node2D"]
+script = ExtResource("1_rgosh")
+
+[node name="Cave" parent="." instance=ExtResource("1_gqhxq")]

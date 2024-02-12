@@ -1,7 +1,12 @@
-res://zombie/asset
+res://world/area/cave
+res://world/area
+res://UI
+res://component/dialog
+res://component/interaction
+res://world/area/area_handler
 res://world/tileset
+res://zombie/asset
 res://UI/inventory/player_inventory
-res://world/locals
 res://world/day_config
 res://world/test
 res://plant/wall_nut
@@ -15,8 +20,3 @@ res://component/hurtbox
 res://component/hitbox
 res://plant/projectile
 res://UI/inventory/item
-res://zombie
-res://
-res://player/states
-res://state_machine
-res://UI/stamina

@@ -20,13 +20,6 @@ func update():
 			inventory.selected_item = inventory.items[i]
 		slots[i - index_start].set_data(inventory.items[i], selection_check)
 
-func _process(delta):
-	if Input.is_action_just_pressed("ui_home"):
-		if visible == true:
-			visible = false
-		else:
-			visible = true
-
 func _input(event):
 		var just_pressed = event.is_pressed() and not event.is_echo()
 		

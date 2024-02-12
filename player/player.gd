@@ -10,6 +10,6 @@ var stamina: int = 100
 func _ready():
 	item_manager.tilemap = tilemap
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	move_and_slide()
 

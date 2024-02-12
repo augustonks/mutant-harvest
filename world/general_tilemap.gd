@@ -29,16 +29,23 @@ func _ready():
 	previous_tile = get_tile_data()
 	current_tile = get_tile_data()
 	
+	# gerar lista de árvores
 	for i in get_tree().get_nodes_in_group("tree"):
 		trees.append(i)
 		i.tile_position = local_to_map(i.global_position)
 
-#74x62
+	#start_minigame()
+
+
+# minigame pvz
+func start_minigame():
 	grass_replace = get_used_cells(layer.grass_replace)
 	for tile_pos in grass_replace:
 		set_cell(layer.grass_replace, tile_pos)
 		set_cell(layer.infected_grass, tile_pos)
 
+
+# Configurar terreno após uso de ferramenta
 func set_terrain(item_name: String):
 	var tile_properties = get_tile_data()
 	var tile_pos = tile_properties.position
@@ -62,6 +69,7 @@ func set_terrain(item_name: String):
 			tree.hit()
 
 
+# Plantar semente
 func plant_seed(rseed):
 	var tile_properties = get_tile_data()
 	var tile_pos = tile_properties.position
@@ -71,8 +79,8 @@ func plant_seed(rseed):
 			return false
 	
 	if tile_properties.layer2 or tile_properties.layer3:
-		var seed = load("res://crop/crop_manager.tscn")
-		var seed_instance: CropManager = seed.instantiate()
+		var seed_item = load("res://crop/crop_manager.tscn")
+		var seed_instance: CropManager = seed_item.instantiate()
 		seed_instance.seed = rseed
 		get_parent().add_child(seed_instance)
 		
@@ -84,6 +92,7 @@ func plant_seed(rseed):
 		return true
 
 
+# Plantar árvore
 func plant_tree():
 	var tile_properties = get_tile_data()
 	var tile_pos = tile_properties.position
@@ -106,6 +115,7 @@ func plant_tree():
 		return true
 
 
+# Plantar plantas do PVZ
 func plant_plant(plant):
 	var tile_properties = get_tile_data()
 	var tile_pos = tile_properties.position
@@ -127,8 +137,10 @@ func plant_plant(plant):
 		return true
 	return false
 
+
 func remove_plant(plant):
 	plants.erase(plant)
+
 
 func get_tile_data():
 	var mouse_pos = get_global_mouse_position()
@@ -143,13 +155,14 @@ func get_tile_data():
 	var tile_properties = {
 		"layer0": layer0_data,
 		"layer1": layer1_data,
-		"layer2": layer1_data,
-		"layer3": layer2_data,
-		"layer4": layer3_data,
+		"layer2": layer2_data,
+		"layer3": layer3_data,
+		"layer4": layer4_data,
 		"position": tile_pos
 	}
 
 	return tile_properties
+
 
 func draw_grid():
 	current_tile = get_tile_data()
@@ -157,6 +170,7 @@ func draw_grid():
 		previous_tile = current_tile
 		erase_grid()
 		spawn_grid()
+
 
 func spawn_grid():
 	var tile_data = get_tile_data()

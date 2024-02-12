@@ -38,7 +38,7 @@ func set_data(r_item: ItemData, selected):
 		texture_rect.scale = Vector2(1, 1)
 	else:
 		modulate = Color(.6, .6, .6)
-		texture_rect.scale = Vector2(.5, .5)
+		texture_rect.scale = Vector2(1, 1)
 
 
 func _on_gui_input(event):

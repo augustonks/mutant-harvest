@@ -133,9 +133,9 @@ func next_stage():
 		if typeof(zombie_event[zombie_stage][0]) == TYPE_INT:
 			print("AGUARDANDO MORTE DOS ZUMBIS...")
 			return
-		var name = zombie_event[zombie_stage][0]
+		var zombie_name = zombie_event[zombie_stage][0]
 		var quantity = zombie_event[zombie_stage][1]
-		spawn_zombie(name, quantity)
+		spawn_zombie(zombie_name, quantity)
 		print(str(quantity) + " ZUMBIS SPAWNADOS, PROSSEGUINDO...")
 		await spawned_stage
 		zombie_stage += 1

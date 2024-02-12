@@ -5,7 +5,7 @@ var tilemap: TilemapManager
 var current_item: ItemData
 var previous_item: ItemData
 
-var seed = preload("res://UI/inventory/item/seed_redflower.tres")
+#var seed_item = preload("res://UI/inventory/item/seed_redflower.tres")
 @onready var player = get_parent()
 
 var temp_tiles: Array
@@ -19,7 +19,7 @@ func _ready():
 	current_item = inventory.selected_item
 	previous_item = current_item
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_released("do_action"):
 		temp_tiles.clear()
 		setting_dir = false
@@ -39,50 +39,51 @@ func _process(delta):
 			tilemap.erase_grid()
 	
 
-func use_tool(tilemap):
+func use_tool(tilemap_r):
 	var item = inventory.selected_item
 	if item:
 		match item.type:
 			'tool':
-				tilemap.set_terrain(item.name)
+				tilemap_r.set_terrain(item.name)
 
-func do_action(tilemap: TilemapManager):
-	var targeted_tile = tilemap.get_tile_data()
-	if not targeted_tile in temp_tiles:
-		temp_tiles.append(targeted_tile)
-	
-		var item = inventory.selected_item
+func do_action(tilemap_r: TilemapManager):
+	if tilemap_r:
+		var targeted_tile = tilemap_r.get_tile_data()
+		if not targeted_tile in temp_tiles:
+			temp_tiles.append(targeted_tile)
 		
-		for crop in tilemap.crops:
-			if crop.tile_position == targeted_tile.position:
-				if crop.is_growth:
-					crop.queue_free()
-					tilemap.crops.erase(crop)
-					inventory.add_item(crop.final_crop)
-					return
-		
-		if !planting:
-			for plant in tilemap.plants:
-				if plant.tile_position == targeted_tile.position:
-					setting_dir = true
-					plant.change_direction()
-					return
+			var item = inventory.selected_item
+			
+			for crop in tilemap_r.crops:
+				if crop.tile_position == targeted_tile.position:
+					if crop.is_growth:
+						crop.queue_free()
+						tilemap_r.crops.erase(crop)
+						inventory.add_item(crop.final_crop)
+						return
+			
+			if !planting:
+				for plant in tilemap_r.plants:
+					if plant.tile_position == targeted_tile.position:
+						setting_dir = true
+						plant.change_direction()
+						return
 
-		if item: 
-			if item.type == "seed":
-				var planted = tilemap.plant_seed(item)
-				if planted:
-					inventory.remove_item(item)
-			if item.type == "tree_seed":
-				var planted = tilemap.plant_tree()
-			if item.type == "food":
-				player.stamina += 10
-				inventory.remove_item(item)
-			if item.type == "plant" and !setting_dir:
-				var price = item.properties.cost
-				if Game.sun >= price:
-					var planted = tilemap.plant_plant(item)
+			if item: 
+				if item.type == "seed":
+					var planted = tilemap_r.plant_seed(item)
 					if planted:
-						Game.sun -= price
-						planting = true
-						
+						inventory.remove_item(item)
+				if item.type == "tree_seed":
+					var _planted = tilemap_r.plant_tree()
+				if item.type == "food":
+					player.stamina += 10
+					inventory.remove_item(item)
+				if item.type == "plant" and !setting_dir:
+					var price = item.properties.cost
+					if Game.sun >= price:
+						var planted = tilemap_r.plant_plant(item)
+						if planted:
+							Game.sun -= price
+							planting = true
+							

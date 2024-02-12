@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://du03rloatvwpb"]
+
+[ext_resource type="Script" path="res://component/dialog/dialog_manager.gd" id="1_rjx2b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6n73"]
+bg_color = Color(0.0235294, 0, 0.113725, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_javad"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a2h6n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qo1lt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q05v7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7em4p"]
+
+[node name="DialogManager" type="PanelContainer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_m6n73")
+script = ExtResource("1_rjx2b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "*"
+justification_flags = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "esse local aparenta estar abandonado...ssssssssssssss"
+scroll_active = false
+visible_characters_behavior = 1
+
+[node name="OptionList" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Yes" type="Button" parent="HBoxContainer/OptionList"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath("../No")
+mouse_filter = 2
+theme_override_colors/font_focus_color = Color(0.988235, 0.752941, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_javad")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_a2h6n")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qo1lt")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q05v7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7em4p")
+text = "sim"
+alignment = 0
+
+[node name="No" type="Button" parent="HBoxContainer/OptionList"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_neighbor_top = NodePath("../Yes")
+focus_neighbor_bottom = NodePath("../Yes")
+mouse_filter = 2
+theme_override_colors/font_focus_color = Color(0.921569, 0.756863, 0.176471, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_javad")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_a2h6n")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qo1lt")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q05v7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7em4p")
+text = "nao
+"
+alignment = 0
+
+[node name="TypeTimer" type="Timer" parent="."]
+wait_time = 0.005
+one_shot = true
+
+[connection signal="pressed" from="HBoxContainer/OptionList/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="HBoxContainer/OptionList/No" to="." method="_on_no_pressed"]
+[connection signal="timeout" from="TypeTimer" to="." method="_on_type_timer_timeout"]

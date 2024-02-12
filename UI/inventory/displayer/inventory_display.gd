@@ -16,7 +16,7 @@ func _ready():
 	
 	update()
 
-func _process(delta):
+func _process(_delta):
 	if holded_item:
 		holded_item_texture.texture = holded_item.texture
 		holded_item_texture.position = get_global_mouse_position()

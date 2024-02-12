@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ciwu3lx7at7sa" path="res://placeholder/blue square.png" id="2_78k33"]
 [ext_resource type="PackedScene" uid="uid://c3x1d20irtxyu" path="res://world/general_tilemap.tscn" id="3_xpqa3"]
 [ext_resource type="PackedScene" uid="uid://dtdl2bjjx1cj1" path="res://tree/tree_manager.tscn" id="4_ijio8"]
-[ext_resource type="PackedScene" uid="uid://dwxv8b50eqo61" path="res://player/player.tscn" id="5_as853"]
+[ext_resource type="PackedScene" uid="uid://bwtn0fjpmt22g" path="res://world/area/area_handler/transition_point.tscn" id="6_ui20w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_boei3"]
 shader = ExtResource("1_6gh81")
@@ -200,10 +200,12 @@ position = Vector2(640, 312)
 [node name="TreeManager50" parent="Tree" instance=ExtResource("4_ijio8")]
 position = Vector2(712, 312)
 
-[node name="Player" parent="." instance=ExtResource("5_as853")]
-position = Vector2(36, 148)
-speed = 60
+[node name="TransitionPoint" parent="." instance=ExtResource("6_ui20w")]
+position = Vector2(0, 144)
+next_scene = "res://world/area/farm.tscn"
+type = "B"
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-limit_left = 0
-limit_top = 0
+[node name="PlayerPosition" parent="TransitionPoint" index="0"]
+position = Vector2(32, 0)
+
+[editable path="TransitionPoint"]

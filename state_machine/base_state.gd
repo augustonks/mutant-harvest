@@ -9,10 +9,10 @@ var next_state: BaseState
 func start():
 	pass
 
-func process(delta):
+func process(_delta):
 	pass
 
-func input(event: InputEvent):
+func input(_event: InputEvent):
 	pass
 
 func on_enter():

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdfhsov58st1v"]
+
+[ext_resource type="Script" path="res://component/interaction/interaction_area.gd" id="1_v0kio"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsa27"]
+
+[node name="InteractionArea" type="Area2D" groups=["interaction_area"]]
+script = ExtResource("1_v0kio")
+
+[node name="CollisionShape2Dw" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jsa27")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

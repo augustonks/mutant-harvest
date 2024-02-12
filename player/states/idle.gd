@@ -3,7 +3,7 @@ extends BaseState
 @export var move_state: BaseState
 @export var use_tool_state: BaseState
 
-func input(event):
+func input(_event):
 
 	if Input.is_action_just_pressed("use_tool"):
 		return use_tool_state
