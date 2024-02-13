@@ -42,9 +42,8 @@ _data = {
 "RESET": SubResource("Animation_w32m6")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_58sw6"]
-radius = 3.0
-height = 18.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjobc"]
+size = Vector2(7, 14)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -86,6 +85,6 @@ scale = Vector2(0.0270889, 0.0349852)
 texture = ExtResource("7_bqi8u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.504517, -1)
+position = Vector2(1.78814e-06, 0.500002)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_58sw6")
+shape = SubResource("RectangleShape2D_bjobc")

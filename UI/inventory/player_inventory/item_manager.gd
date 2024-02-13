@@ -47,7 +47,7 @@ func use_tool(tilemap_r):
 				tilemap_r.set_terrain(item.name)
 
 func do_action(tilemap_r: TilemapManager):
-	if tilemap_r:
+	if tilemap_r and tilemap_r.location == "general":
 		var targeted_tile = tilemap_r.get_tile_data()
 		if not targeted_tile in temp_tiles:
 			temp_tiles.append(targeted_tile)

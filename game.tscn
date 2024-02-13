@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://xbes0nb3pltu"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_qwic1"]
-[ext_resource type="PackedScene" uid="uid://43lp2gu5t4e6" path="res://world/area/cave/cave_manager.tscn" id="2_1jswu"]
+[ext_resource type="PackedScene" uid="uid://43lp2gu5t4e6" path="res://world/area/cave/cave_manager.tscn" id="2_3ut3k"]
 [ext_resource type="PackedScene" uid="uid://dwxv8b50eqo61" path="res://player/player.tscn" id="3_t5t1w"]
 [ext_resource type="PackedScene" uid="uid://cwu6yr6pc10ti" path="res://UI/UI.tscn" id="4_ctueo"]
 [ext_resource type="PackedScene" uid="uid://du03rloatvwpb" path="res://component/dialog/dialog_manager.tscn" id="5_32eya"]
@@ -11,7 +11,7 @@
 y_sort_enabled = true
 script = ExtResource("1_qwic1")
 
-[node name="CaveManager" parent="." instance=ExtResource("2_1jswu")]
+[node name="CaveManager" parent="." instance=ExtResource("2_3ut3k")]
 
 [node name="Player" parent="." instance=ExtResource("3_t5t1w")]
 position = Vector2(384, 368)

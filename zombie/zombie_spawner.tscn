@@ -4,12 +4,13 @@
 
 [node name="ZombieSpawner" type="Node2D"]
 script = ExtResource("1_xfk3v")
+end = null
 zombie_event = [1, 1, 2, 1]
+days = null
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 16.0
 one_shot = true
-autostart = true
 
 [node name="Line2D" type="Line2D" parent="."]
 

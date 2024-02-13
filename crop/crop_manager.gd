@@ -15,7 +15,7 @@ var tile_position: Vector2i
 
 
 func _ready():
-	stages = seed_item.properties.seed_item_stages
+	stages = seed_item.properties.seed_stages
 	Game.connect("new_day", grow)
 	final_crop = load("res://UI/inventory/item/" + seed_item.crop.name + ".tres")
 	sprite.texture = seed_item.texture.atlas

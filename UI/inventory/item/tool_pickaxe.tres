@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bc1h44drtxo4a"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="1_k2722"]
+[ext_resource type="Texture2D" uid="uid://c5cfomiilfupu" path="res://UI/inventory/asset/tool_pickaxe.png" id="2_2jlof"]
+
+[resource]
+script = ExtResource("1_k2722")
+name = "pickaxe"
+texture = ExtResource("2_2jlof")
+type = "tool"
+stockable = false
+quantity = 1
+properties = {
+"cost": 0,
+"seed_stages": 0
+}

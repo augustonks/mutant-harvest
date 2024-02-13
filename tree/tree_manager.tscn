@@ -1,9 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtdl2bjjx1cj1"]
+[gd_scene load_steps=12 format=3 uid="uid://dtdl2bjjx1cj1"]
 
 [ext_resource type="Script" path="res://tree/tree_manager.gd" id="1_u1diw"]
 [ext_resource type="Texture2D" uid="uid://735101o21ru1" path="res://tree/asset/tree.png" id="2_m8alo"]
+[ext_resource type="Shader" path="res://tree/asset/tree_manager.gdshader" id="3_bqwpn"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_bhfpo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ah8ob"]
+shader = ExtResource("3_bqwpn")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.02
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.0
+shader_parameter/offset = 0.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jasg"]
 size = Vector2(16, 16)
@@ -122,6 +135,7 @@ region_enabled = true
 region_rect = Rect2(70, 0, 70, 92)
 
 [node name="Top" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_ah8ob")
 position = Vector2(-1, -9)
 texture = ExtResource("2_m8alo")
 offset = Vector2(0, -29)

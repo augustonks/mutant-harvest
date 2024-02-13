@@ -22,4 +22,5 @@ func input(_event):
 		return idle_state
 
 	if Input.is_action_pressed("do_action"):
-		parent.item_manager.do_action(parent.tilemap)
+		if parent.tilemap:
+			parent.item_manager.do_action(parent.tilemap)

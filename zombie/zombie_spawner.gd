@@ -58,10 +58,11 @@ var graves: Array
 signal spawned_stage
 
 func _ready():
-	randomize()
-	initialize_grid()
-	set_spawnpoint()
-	Game.connect("new_day", set_spawnpoint)
+#	randomize()
+#	initialize_grid()
+#	set_spawnpoint()
+#	Game.connect("new_day", set_spawnpoint)
+	pass
 
 func set_spawnpoint():
 	spawn_points.clear()

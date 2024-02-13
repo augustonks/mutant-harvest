@@ -1,5 +1,4 @@
-class_name TilemapManager
-extends TileMap
+extends TilemapManager
 
 var crops: Array[CropManager]
 var trees: Array[TreeManager]
@@ -25,6 +24,7 @@ var tile_marking
 var previous_tile
 var current_tile
 
+
 func _ready():
 	previous_tile = get_tile_data()
 	current_tile = get_tile_data()
@@ -49,21 +49,27 @@ func start_minigame():
 func set_terrain(item_name: String):
 	var tile_properties = get_tile_data()
 	var tile_pos = tile_properties.position
-
-	if item_name == "hoe" and tile_properties.layer1: 
-		var tile_data = tile_properties.layer1
+	
+	# Verifica a ferramenta do player atual e verifica
+	# o layer (ou tipo) do tile.
+	# Exemplo:
+	# Se ferramenta for igual a enxada E layer do tile for igual a terra:
+	#	mude o tile de terra para tile de terra arada
+	if item_name == "hoe" and tile_properties.layer2: 
+		var tile_data = tile_properties.layer2
+		print(tile_data)
 		if tile_data.get_custom_data("can_weed"):
 			weed_dirt_tiles.append(tile_pos)
 			set_cells_terrain_connect(layer.weed_dirt, weed_dirt_tiles, 0,1)
 			return
 			
-	if item_name == "water_can" and tile_properties.layer2:
-		var tile_data = tile_properties.layer2
+	if item_name == "water_can" and tile_properties.layer3:
+		var tile_data = tile_properties.layer3
 		if tile_data.get_custom_data("can_water"):
 			watered_dirt_tiles.append(tile_pos)
 			set_cells_terrain_connect(layer.watered_dirt, watered_dirt_tiles, 0,2)
 			return
-			
+	
 	for tree in trees:
 		if tree.tile_position == tile_pos:
 			tree.hit()
@@ -78,10 +84,12 @@ func plant_seed(rseed):
 		if crop.tile_position == tile_pos:
 			return false
 	
-	if tile_properties.layer2 or tile_properties.layer3:
+	# Sementes só podem ser plantadas em tiles de layer 3 ou 4, ou
+	# seja, terra arada ou terra molhada
+	if tile_properties.layer3 or tile_properties.layer4:
 		var seed_item = load("res://crop/crop_manager.tscn")
 		var seed_instance: CropManager = seed_item.instantiate()
-		seed_instance.seed = rseed
+		seed_instance.seed_item = rseed
 		get_parent().add_child(seed_instance)
 		
 		var local_tile_pos = map_to_local(tile_pos)
@@ -96,11 +104,13 @@ func plant_seed(rseed):
 func plant_tree():
 	var tile_properties = get_tile_data()
 	var tile_pos = tile_properties.position
+	print(trees.size())
 	
 	for tree in trees:
 		if tree.tile_position == tile_pos:
 			return false
-	
+
+
 	if (tile_properties.layer0 or tile_properties.layer1 or 
 	tile_properties.layer2 or tile_properties.layer3):
 		var tree = load("res://tree/tree_manager.tscn")

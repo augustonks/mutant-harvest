@@ -33,17 +33,19 @@ var no_button = $HBoxContainer/OptionList/No
 
 signal event
 
+
 func _process(delta):
 	if running:
 		line_complete = true if rich_text.visible_ratio == 1 else false
 
+
 func set_dialog(dialog: Array[String]):
 	if !running:
-		print(dialog)
 		dialog_list = dialog.duplicate()
 		visible = true
 		running = true
 		next_page()
+
 
 func close_dialog():
 	index = -1
@@ -53,11 +55,13 @@ func close_dialog():
 	response.no = false
 	response_index = 0
 
+
 func has_next_page():
 	if index >= dialog_list.size() -1:
 		return false
 	else:
 		return true
+
 
 func next_page():
 	if !has_next_page():
@@ -96,6 +100,7 @@ func next_page():
 				return
 		rich_text.text = dialog_list[index]
 		type_timer.start(0.03)
+
 
 func _input(event):
 	if running and event is InputEvent:

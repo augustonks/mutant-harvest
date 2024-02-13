@@ -1,10 +1,13 @@
+res://ore
+C:/Users/augus/Documents/Godot/Projetos 4.1.1/Stardew Valley clones tops/NelySys/world/area/area_handler
+res://world/tileset
+res://tree/asset
 res://world/area/cave
 res://world/area
 res://UI
 res://component/dialog
 res://component/interaction
 res://world/area/area_handler
-res://world/tileset
 res://zombie/asset
 res://UI/inventory/player_inventory
 res://world/day_config
@@ -17,6 +20,3 @@ res://zombie/states
 res://plant/peashooter
 res://component/velocity
 res://component/hurtbox
-res://component/hitbox
-res://plant/projectile
-res://UI/inventory/item

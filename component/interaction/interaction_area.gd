@@ -11,7 +11,6 @@ signal send_dialog
 func _on_input_event(_viewport, event, _shape_idx):
 	if event.is_action_pressed("do_action"):
 			emit_signal("send_dialog", dialog)
-			print("send_dialog to game")
 
 
 func _on_mouse_entered():
