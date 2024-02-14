@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwxv8b50eqo61"]
+[gd_scene load_steps=13 format=3 uid="uid://dwxv8b50eqo61"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_eyp0r"]
 [ext_resource type="PackedScene" uid="uid://dl65n12uex07w" path="res://UI/inventory/player_inventory/item_manager.tscn" id="2_owb74"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://player/states/move.gd" id="4_kfcfi"]
 [ext_resource type="Script" path="res://player/states/idle.gd" id="5_fky25"]
 [ext_resource type="Script" path="res://player/states/use_tool.gd" id="6_bu2um"]
-[ext_resource type="Texture2D" uid="uid://ctl67w1trooda" path="res://cat.png" id="7_bqi8u"]
+[ext_resource type="PackedScene" uid="uid://bhilgeovqrnfn" path="res://player/hit_location.tscn" id="8_8rj4u"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_bjp7s"]
 
@@ -45,6 +45,8 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bjobc"]
 size = Vector2(7, 14)
 
+[sub_resource type="BoxMesh" id="BoxMesh_310xl"]
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 motion_mode = 1
@@ -79,12 +81,16 @@ use_tool_state = NodePath("../UseTool")
 script = ExtResource("6_bu2um")
 idle_state = NodePath("../Idle")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, -12)
-scale = Vector2(0.0270889, 0.0349852)
-texture = ExtResource("7_bqi8u")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.78814e-06, 0.500002)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_bjobc")
+
+[node name="HitLocation" parent="." node_paths=PackedStringArray("player", "item_manager") instance=ExtResource("8_8rj4u")]
+player = NodePath("..")
+item_manager = NodePath("../ItemManager")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(0, -15)
+scale = Vector2(13, 30)
+mesh = SubResource("BoxMesh_310xl")

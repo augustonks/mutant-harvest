@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://fcrju2nsl6i1"]
+
+[ext_resource type="Texture2D" uid="uid://c4bff3ij2p77a" path="res://entities/ore/ores.png" id="1_gndtu"]
+
+[node name="ore" type="Sprite2D"]
+texture = ExtResource("1_gndtu")
+hframes = 3
+vframes = 2
+frame = 1

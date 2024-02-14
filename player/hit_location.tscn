@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhilgeovqrnfn"]
+
+[ext_resource type="Script" path="res://player/hit_location.gd" id="1_kihns"]
+[ext_resource type="Texture2D" uid="uid://du05q83i27rax" path="res://placeholder/hollow_square.png" id="1_x01ct"]
+
+[node name="HitLocation" type="Node2D"]
+script = ExtResource("1_kihns")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
+texture = ExtResource("1_x01ct")

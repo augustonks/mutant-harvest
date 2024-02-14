@@ -5,7 +5,7 @@ var current_area: Node2D
 @onready
 var dialog_manager := $UI/DialogManager
 @onready
-var player = $Player
+var player: Player = $Player
 @onready
 var fade = $UI/Fade
 
@@ -36,6 +36,8 @@ func _ready():
 	# O player precisa estar ligado ao tilemap de cada área para
 	# suas ações que o modifica.
 	player.tilemap = current_area.tilemap
+	
+	set_player_camera_limit(current_area)
 
 
 func connect_transition_points():
@@ -48,6 +50,13 @@ func connect_dialog_points():
 		if !i.is_connected("send_dialog", send_dialog):
 			i.connect("send_dialog", send_dialog)
 
+func set_player_camera_limit(area):
+	var camera = player.camera
+	camera.limit_top = area.area_limit.top
+	camera.limit_bottom = area.area_limit.bottom
+	camera.limit_left = area.area_limit.left
+	camera.limit_right = area.area_limit.right
+	print("camera set")
 
 # Fade In e Out para transição de área
 func transition_fade():
@@ -94,6 +103,7 @@ func change_scene(next_scene_path: String, type: String):
 	
 	connect_transition_points()
 	connect_dialog_points()
+	set_player_camera_limit(current_area)
 	
 	# Define possíveis variáveis para a nova cena
 	if "game_manager" in current_area:

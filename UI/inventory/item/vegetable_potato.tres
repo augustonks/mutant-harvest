@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://bgj2xtj2eusbi"]
 
 [ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="1_fnmmu"]
-[ext_resource type="Texture2D" uid="uid://badgba1m8ketc" path="res://crop/asset/potato.png" id="2_twnpu"]
+[ext_resource type="Texture2D" uid="uid://badgba1m8ketc" path="res://entities/crop/asset/potato.png" id="2_twnpu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2ve7"]
 atlas = ExtResource("2_twnpu")

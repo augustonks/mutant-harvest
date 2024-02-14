@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://b35p5b1aso1oi"]
+
+[ext_resource type="Script" path="res://entities/ore/ore_manager.gd" id="1_q1dhm"]
+[ext_resource type="Shader" path="res://visual/shader/supercalifragilisticexpialidocious.gdshader" id="2_x3ofs"]
+[ext_resource type="Texture2D" uid="uid://c4bff3ij2p77a" path="res://entities/ore/ores.png" id="3_uk8ss"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4k28o"]
+shader = ExtResource("2_x3ofs")
+shader_parameter/strength = 0.573
+shader_parameter/speed = 0.1
+shader_parameter/angle = 67.5
+shader_parameter/enable_shader = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6arq"]
+size = Vector2(10, 10)
+
+[sub_resource type="Animation" id="Animation_r7ft0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i2052"]
+resource_name = "hit"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, -1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xypvi"]
+_data = {
+"RESET": SubResource("Animation_r7ft0"),
+"hit": SubResource("Animation_i2052")
+}
+
+[node name="OreManager" type="StaticBody2D"]
+collision_mask = 2
+script = ExtResource("1_q1dhm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_4k28o")
+texture = ExtResource("3_uk8ss")
+hframes = 3
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_y6arq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xypvi")
+}

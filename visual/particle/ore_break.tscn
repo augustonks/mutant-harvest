@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctp2w1yub45r0"]
+
+[ext_resource type="Texture2D" uid="uid://c4bff3ij2p77a" path="res://entities/ore/ores.png" id="1_xjyrn"]
+[ext_resource type="Script" path="res://visual/particle/particle_handler.gd" id="2_1r0h7"]
+
+[sub_resource type="Curve" id="Curve_dcvu5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.731903, 0.821053), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_a1mdv"]
+curve = SubResource("Curve_dcvu5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kqdoo"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 90.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_max = 720.0
+scale_curve = SubResource("CurveTexture_a1mdv")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfkhp"]
+atlas = ExtResource("1_xjyrn")
+region = Rect2(8, 0, 8, 8)
+
+[node name="ore_break" type="GPUParticles2D"]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_kqdoo")
+texture = SubResource("AtlasTexture_tfkhp")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+script = ExtResource("2_1r0h7")

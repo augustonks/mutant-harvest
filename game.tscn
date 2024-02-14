@@ -18,6 +18,9 @@ position = Vector2(384, 368)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -16)
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_ctueo")]
 player = NodePath("../Player")

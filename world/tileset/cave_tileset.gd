@@ -10,7 +10,7 @@ var layer = {
 
 signal ladder_added
 
-var ore_manager = preload("res://ore/ore_manager.tscn")
+var ore_manager = preload("res://entities/ore/ore_manager.tscn")
 
 
 func set_ore():
@@ -27,23 +27,29 @@ func set_ore():
 			ores.append(ore_instance)
 			ore_instance.connect("ladder_added", func():
 				emit_signal("ladder_added"))
+			ore_instance.connect("destroyed", remove_ore)
 
 
-func set_terrain(item_name: String):
-	var tile_properties = get_tile_data()
+func set_terrain(item_name: String, target_tile: Vector2):
+	var tile_properties = get_tile_data(target_tile)
 	var tile_pos = tile_properties.position
 	
 	if item_name == "pickaxe":
 		for ore in ores:
 			if ore.tile_position == tile_pos:
-				ores.erase(ore)
 				var quantity_left = ores.size()
-				ore.destroy(quantity_left)
+				ore.hit(quantity_left)
 
+func remove_ore(ore):
+	ores.erase(ore)
 
-func get_tile_data():
-	var mouse_pos = get_global_mouse_position()
-	var tile_pos = local_to_map(mouse_pos)
+func get_tile_data(target_tile = Vector2.ZERO):
+	var tile_pos: Vector2i
+	if target_tile == Vector2.ZERO:
+		var mouse_pos = get_global_mouse_position()
+		tile_pos = local_to_map(mouse_pos)
+	else:
+		tile_pos = local_to_map(target_tile)
 
 	var layer0_data: TileData = get_cell_tile_data(layer.floor, tile_pos)
 	var layer1_data: TileData = get_cell_tile_data(layer.wall, tile_pos)

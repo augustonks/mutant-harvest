@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://bgj2xtj2eusbi" path="res://UI/inventory/item/vegetable_potato.tres" id="1_oplfb"]
 [ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="2_tvwxf"]
-[ext_resource type="Texture2D" uid="uid://xlio86yxsall" path="res://crop/asset/sunflower.png" id="3_2dhl1"]
+[ext_resource type="Texture2D" uid="uid://xlio86yxsall" path="res://entities/crop/asset/sunflower.png" id="3_2dhl1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fnjcj"]
 atlas = ExtResource("3_2dhl1")

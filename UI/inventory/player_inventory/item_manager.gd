@@ -1,6 +1,9 @@
+class_name ItemManager
 extends Node2D
 
 @export var inventory: InventoryData
+
+var target_tile: Vector2
 var tilemap: TilemapManager
 var current_item: ItemData
 var previous_item: ItemData
@@ -44,7 +47,7 @@ func use_tool(tilemap_r):
 	if item:
 		match item.type:
 			'tool':
-				tilemap_r.set_terrain(item.name)
+				tilemap_r.set_terrain(item.name, target_tile)
 
 func do_action(tilemap_r: TilemapManager):
 	if tilemap_r and tilemap_r.location == "general":

@@ -46,8 +46,8 @@ func start_minigame():
 
 
 # Configurar terreno após uso de ferramenta
-func set_terrain(item_name: String):
-	var tile_properties = get_tile_data()
+func set_terrain(item_name: String, target_tile: Vector2):
+	var tile_properties = get_tile_data(target_tile)
 	var tile_pos = tile_properties.position
 	
 	# Verifica a ferramenta do player atual e verifica
@@ -152,9 +152,13 @@ func remove_plant(plant):
 	plants.erase(plant)
 
 
-func get_tile_data():
-	var mouse_pos = get_global_mouse_position()
-	var tile_pos = local_to_map(mouse_pos)
+func get_tile_data(target_tile = Vector2.ZERO):
+	var tile_pos: Vector2
+	if target_tile == Vector2.ZERO:
+		var mouse_pos = get_global_mouse_position()
+		tile_pos = local_to_map(mouse_pos)
+	else:
+		tile_pos = target_tile
 	
 	var layer0_data: TileData = get_cell_tile_data(layer.grass, tile_pos)
 	var layer1_data: TileData = get_cell_tile_data(layer.infected_grass, tile_pos)
