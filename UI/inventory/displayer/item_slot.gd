@@ -7,25 +7,26 @@ extends Panel
 
 var index: int
 var occupied := false
-var item: ItemData
+var slot: ItemSlot
 
 signal pressed(occupied, item, slot)
 
-func set_data(r_item: ItemData, selected):
-	if r_item:
-		item = r_item
+func set_data(r_slot: ItemSlot, selected):
+	slot = r_slot
+	if r_slot.item:
 		texture_rect.visible = true
-		texture_rect.texture = item.texture
+		texture_rect.texture = slot.item.texture
 		occupied = true
 		
-		if item.type != 'plant':
-			if item.quantity > 1:
+		if slot.item.type != 'plant':
+			sun_texture.visible = false
+			if slot.quantity > 1:
 				quantity_panel.visible = true
-				quantity_display.text = str(item.quantity)
+				quantity_display.text = str(slot.quantity)
 			else:
 				quantity_panel.visible = false
 		else:
-			quantity_display.text = str(item.properties.cost)
+			quantity_display.text = str(slot.item.properties.cost)
 			quantity_panel.visible = true
 			sun_texture.visible = true
 	else:
@@ -45,4 +46,4 @@ func _on_gui_input(event):
 	if event is InputEventMouseButton:
 		var just_pressed = event.is_pressed() and not event.is_echo()
 		if just_pressed:
-			emit_signal("pressed", occupied, item, self)
+			emit_signal("pressed", occupied, slot, self)

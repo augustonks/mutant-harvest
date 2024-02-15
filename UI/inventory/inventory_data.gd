@@ -1,40 +1,42 @@
 class_name InventoryData
 extends Resource
 
-@export var items: Array[ItemData]
+@export var slots: Array[ItemSlot]
 var selected_item: ItemData
 
 var removing_item = false
+signal update
 
 func _init():
 	call_deferred("_ready")
 
 func _ready():
-	for i in items.size():
-		if items[i]:
-			items[i].index = i
+	for i in slots.size():
+		if slots[i]:
+			slots[i].index = i
 
 func add_item(item: ItemData):
-	for i in items.size():
-		if items[i] and items[i].name == item.name:
-			items[i].quantity += 1
-			return
+	for i in slots.size():
+		if slots[i].item == item and slots[i].quantity < 999:
+			slots[i].quantity += 1
+			emit_signal("update")
+			return true
 
-	for i in items.size():
-		if not items[i]:
-			item.index = i
-			item.quantity = 1
-			items[i] = item
-			return
-
+	for i in slots.size():
+		if not slots[i].item:
+			slots[i].quantity = 1
+			slots[i].item = item
+			emit_signal("update")
+			return true
+	return false
 
 func remove_item(item: ItemData):
 	if !removing_item:
 		removing_item = true
-		for i in items.size():
-			if items[i]:
-				if items[i].index == item.index:
-					items[i].quantity -= 1
-					if items[i].quantity == 0:
-						items[i] = null
+		for i in slots.size():
+			if slots[i]:
+				if slots[i].index == item.index:
+					slots[i].quantity -= 1
+					if slots[i].quantity == 0:
+						slots[i] = null
 			removing_item = false

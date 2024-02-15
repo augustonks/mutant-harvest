@@ -12,6 +12,11 @@ signal ladder_added
 
 var ore_manager = preload("res://entities/ore/ore_manager.tscn")
 
+#func _ready():
+#	for i in get_tree().get_nodes_in_group("ore"):
+#		ores.append(i)
+#		i.tile_position = local_to_map(i.global_position)
+#		i.connect("destroyed", remove_ore)
 
 func set_ore():
 	var map_size = get_used_cells(2)
@@ -36,7 +41,7 @@ func set_terrain(item_name: String, target_tile: Vector2):
 	
 	if item_name == "pickaxe":
 		for ore in ores:
-			if ore.tile_position == tile_pos:
+			if ore and ore.tile_position == tile_pos:
 				var quantity_left = ores.size()
 				ore.hit(quantity_left)
 

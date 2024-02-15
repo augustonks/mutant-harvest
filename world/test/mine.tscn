@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsqel5d6y4w6h"]
+
+[ext_resource type="PackedScene" uid="uid://dwxv8b50eqo61" path="res://player/player.tscn" id="1_drf03"]
+[ext_resource type="PackedScene" uid="uid://puy23akjil4c" path="res://world/tileset/cave.tscn" id="2_gmmvl"]
+[ext_resource type="PackedScene" uid="uid://b35p5b1aso1oi" path="res://entities/ore/ore_manager.tscn" id="3_v2358"]
+[ext_resource type="PackedScene" uid="uid://cwu6yr6pc10ti" path="res://UI/UI.tscn" id="4_ylkhs"]
+
+[node name="mine" type="Node2D"]
+
+[node name="Player" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("1_drf03")]
+tilemap = NodePath("../Cave")
+
+[node name="Cave" parent="." instance=ExtResource("2_gmmvl")]
+location = "cave"
+
+[node name="OreManager" parent="." instance=ExtResource("3_v2358")]
+position = Vector2(128, 112)
+
+[node name="OreManager2" parent="." instance=ExtResource("3_v2358")]
+position = Vector2(208, 80)
+
+[node name="OreManager3" parent="." instance=ExtResource("3_v2358")]
+position = Vector2(240, 128)
+
+[node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_ylkhs")]
+player = NodePath("../Player")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://y0vdjypyjd0p"]
 
-[ext_resource type="Texture2D" uid="uid://dnwo8eqbrur4v" path="res://entities/ore/ladder.png" id="1_2d6xi"]
-[ext_resource type="Script" path="res://entities/ore/ladder.gd" id="1_5rix5"]
+[ext_resource type="Texture2D" uid="uid://dnwo8eqbrur4v" path="res://entities/ladder/ladder.png" id="1_2d6xi"]
+[ext_resource type="Script" path="res://entities/ladder/ladder.gd" id="1_5rix5"]
 [ext_resource type="PackedScene" uid="uid://cdfhsov58st1v" path="res://component/interaction/interaction_area.tscn" id="3_0m4hk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_75g4q"]

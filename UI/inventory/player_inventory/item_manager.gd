@@ -31,15 +31,15 @@ func _process(_delta):
 #	if previous_item != current_item:
 #		previous_item = current_item
 #		on_item_change()
-	if tilemap:
-		var item = inventory.selected_item
-		if item:
-			if item.type == "plant":
-				tilemap.draw_grid()
-			else:
-				tilemap.erase_grid()
-		else:
-			tilemap.erase_grid()
+#	if tilemap:
+#		var item = inventory.selected_item
+#		if item:
+#			if item.type == "plant":
+#				tilemap.draw_grid()
+#			else:
+#				tilemap.erase_grid()
+#		else:
+#			tilemap.erase_grid()
 	
 
 func use_tool(tilemap_r):

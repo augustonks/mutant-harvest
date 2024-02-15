@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcq4r15u58f37"]
+
+[ext_resource type="Script" path="res://component/drop_detector/drop_detector.gd" id="1_j2mat"]
+[ext_resource type="AudioStream" uid="uid://cd5isphxx0ivb" path="res://audio/fx/item_pop.ogg" id="2_ld2v5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cci6c"]
+radius = 34.3657
+
+[node name="drop_detector" type="Area2D"]
+script = ExtResource("1_j2mat")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cci6c")
+debug_color = Color(0.352941, 0.592157, 0.509804, 0)
+
+[node name="Pop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ld2v5")

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dhhkee4sgubbf"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="1_ahi7j"]
+[ext_resource type="Texture2D" uid="uid://doawx3mdwjmx2" path="res://UI/inventory/asset/cavern.png" id="2_djllk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgjxb"]
+atlas = ExtResource("2_djllk")
+region = Rect2(64, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_ahi7j")
+name = "mineral_augustium"
+texture = SubResource("AtlasTexture_mgjxb")
+type = "mineral"
+stockable = true
+quantity = 1
+properties = {
+"cost": 0,
+"seed_stages": 0
+}

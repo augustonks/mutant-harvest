@@ -56,7 +56,6 @@ func set_player_camera_limit(area):
 	camera.limit_bottom = area.area_limit.bottom
 	camera.limit_left = area.area_limit.left
 	camera.limit_right = area.area_limit.right
-	print("camera set")
 
 # Fade In e Out para transição de área
 func transition_fade():

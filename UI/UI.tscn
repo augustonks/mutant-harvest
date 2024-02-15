@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://UI/UI.gd" id="1_ng8w5"]
 [ext_resource type="PackedScene" uid="uid://7ab5l5btddb4" path="res://UI/inventory/displayer/hotbar_display.tscn" id="2_cxhkq"]
 [ext_resource type="PackedScene" uid="uid://cdyw1b5h4d65f" path="res://UI/stamina/stamina_display.tscn" id="4_61cfb"]
-[ext_resource type="Texture2D" uid="uid://5xk6drraft0i" path="res://sun/sun.png" id="5_o5mes"]
+[ext_resource type="Texture2D" uid="uid://5xk6drraft0i" path="res://entities/sun/sun.png" id="5_o5mes"]
 
 [sub_resource type="SystemFont" id="SystemFont_qluju"]
 subpixel_positioning = 0

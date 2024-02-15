@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://bw4omwvlbkdsh"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="1_i8yla"]
+[ext_resource type="Texture2D" uid="uid://doawx3mdwjmx2" path="res://UI/inventory/asset/cavern.png" id="2_yud0u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgjxb"]
+atlas = ExtResource("2_yud0u")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_i8yla")
+name = "mineral_iron"
+texture = SubResource("AtlasTexture_mgjxb")
+type = "mineral"
+stockable = true
+quantity = 1
+properties = {
+"cost": 0,
+"seed_stages": 0
+}

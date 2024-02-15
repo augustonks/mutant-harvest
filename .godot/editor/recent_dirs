@@ -1,3 +1,5 @@
+res://UI/inventory/item
+res://entities/droppable
 res://world/area/cave
 res://player
 res://visual

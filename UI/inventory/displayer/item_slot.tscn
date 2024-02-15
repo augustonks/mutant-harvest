@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://lruffug31t7w"]
+[gd_scene load_steps=5 format=3 uid="uid://lruffug31t7w"]
 
 [ext_resource type="Script" path="res://UI/inventory/displayer/item_slot.gd" id="1_frfm8"]
-[ext_resource type="Texture2D" uid="uid://c8xdvkpy3qcy3" path="res://UI/inventory/asset/tool_watercan.png" id="2_yqyox"]
-[ext_resource type="Texture2D" uid="uid://5xk6drraft0i" path="res://sun/sun.png" id="3_p5j7k"]
+[ext_resource type="Texture2D" uid="uid://5xk6drraft0i" path="res://entities/sun/sun.png" id="3_p5j7k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldkq3"]
 bg_color = Color(0.803922, 0.658824, 0.341176, 1)
@@ -32,11 +31,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(12, 12)
-texture = ExtResource("2_yqyox")
 expand_mode = 1
 stretch_mode = 3
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

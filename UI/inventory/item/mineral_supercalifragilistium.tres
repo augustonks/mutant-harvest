@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c00tkcioqifu5"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="1_53tx5"]
+[ext_resource type="Texture2D" uid="uid://doawx3mdwjmx2" path="res://UI/inventory/asset/cavern.png" id="2_gctpo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgjxb"]
+atlas = ExtResource("2_gctpo")
+region = Rect2(80, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_53tx5")
+name = "mineral_supercalifragilistium"
+texture = SubResource("AtlasTexture_mgjxb")
+type = "mineral"
+stockable = true
+quantity = 1
+properties = {
+"cost": 0,
+"seed_stages": 0
+}

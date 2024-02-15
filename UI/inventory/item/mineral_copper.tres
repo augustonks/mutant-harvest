@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dv3f71x4mcxwo"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="1_6vbio"]
+[ext_resource type="Texture2D" uid="uid://doawx3mdwjmx2" path="res://UI/inventory/asset/cavern.png" id="2_ag3ea"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgjxb"]
+atlas = ExtResource("2_ag3ea")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_6vbio")
+name = "mineral_copper"
+texture = SubResource("AtlasTexture_mgjxb")
+type = "mineral"
+stockable = true
+quantity = 1
+properties = {
+"cost": 0,
+"seed_stages": 0
+}

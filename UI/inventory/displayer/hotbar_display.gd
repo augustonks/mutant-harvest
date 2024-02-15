@@ -10,6 +10,7 @@ var index_start := 0
 signal update_display
 
 func _ready():
+	inventory.update.connect(update)
 	update()
 
 func update():
@@ -17,8 +18,8 @@ func update():
 		var selection_check = false
 		if i == selection_index:
 			selection_check = true
-			inventory.selected_item = inventory.items[i]
-		slots[i - index_start].set_data(inventory.items[i], selection_check)
+			inventory.selected_item = inventory.slots[i].item
+		slots[i - index_start].set_data(inventory.slots[i], selection_check)
 
 func _input(event):
 		var just_pressed = event.is_pressed() and not event.is_echo()
