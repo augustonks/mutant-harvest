@@ -14,7 +14,7 @@ script = ExtResource("1_qwic1")
 [node name="CaveManager" parent="." instance=ExtResource("2_3ut3k")]
 
 [node name="Player" parent="." instance=ExtResource("3_t5t1w")]
-position = Vector2(384, 368)
+position = Vector2(376, 352)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -16)

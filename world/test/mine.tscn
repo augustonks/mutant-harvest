@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsqel5d6y4w6h"]
+[gd_scene load_steps=6 format=3 uid="uid://dsqel5d6y4w6h"]
 
 [ext_resource type="PackedScene" uid="uid://dwxv8b50eqo61" path="res://player/player.tscn" id="1_drf03"]
 [ext_resource type="PackedScene" uid="uid://puy23akjil4c" path="res://world/tileset/cave.tscn" id="2_gmmvl"]
 [ext_resource type="PackedScene" uid="uid://b35p5b1aso1oi" path="res://entities/ore/ore_manager.tscn" id="3_v2358"]
 [ext_resource type="PackedScene" uid="uid://cwu6yr6pc10ti" path="res://UI/UI.tscn" id="4_ylkhs"]
+[ext_resource type="PackedScene" uid="uid://pcsnutxh6iwj" path="res://entities/monster/zombie/zombie.tscn" id="5_1mwt4"]
 
 [node name="mine" type="Node2D"]
 
 [node name="Player" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("1_drf03")]
+position = Vector2(64, 32)
 tilemap = NodePath("../Cave")
 
 [node name="Cave" parent="." instance=ExtResource("2_gmmvl")]
@@ -24,3 +26,7 @@ position = Vector2(240, 128)
 
 [node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_ylkhs")]
 player = NodePath("../Player")
+
+[node name="Zombie" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_1mwt4")]
+position = Vector2(64, 96)
+target = NodePath("../Player")

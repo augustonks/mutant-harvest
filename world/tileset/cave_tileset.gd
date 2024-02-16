@@ -1,7 +1,6 @@
 extends TilemapManager
 
 var ores: Array[OreManager] = [] 
-
 var layer = {
 	"floor": 0,
 	"wall": 1,
@@ -12,6 +11,9 @@ signal ladder_added
 
 var ore_manager = preload("res://entities/ore/ore_manager.tscn")
 
+@onready
+var map_size = get_used_cells(2)
+
 #func _ready():
 #	for i in get_tree().get_nodes_in_group("ore"):
 #		ores.append(i)
@@ -19,10 +21,9 @@ var ore_manager = preload("res://entities/ore/ore_manager.tscn")
 #		i.connect("destroyed", remove_ore)
 
 func set_ore():
-	var map_size = get_used_cells(2)
 	for i in map_size:
 		var rand = randf()
-		if rand > .7:
+		if rand < .3:
 			var ore_instance = ore_manager.instantiate()
 			get_parent().add_child(ore_instance)
 			var level = get_parent().level
@@ -33,7 +34,6 @@ func set_ore():
 			ore_instance.connect("ladder_added", func():
 				emit_signal("ladder_added"))
 			ore_instance.connect("destroyed", remove_ore)
-
 
 func set_terrain(item_name: String, target_tile: Vector2):
 	var tile_properties = get_tile_data(target_tile)
