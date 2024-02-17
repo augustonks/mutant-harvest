@@ -1,8 +1,14 @@
-extends CanvasLayer
+extends Control
 
-@onready var inventory_display := $Control/InventoryDisplay
-@onready var inventory_hotbar := $Control/InventoryHotbar
 @export var player: CharacterBody2D
+
+@onready var inventory_display := $InventoryDisplay
+@onready var inventory_hotbar := $InventoryHotbar
+@onready var time := $Time
+@onready var money := $Money
+@onready var progress_bar = $HBoxContainer/ProgressBar
+@onready var hp_display = $HBoxContainer/HPDisplay
+@onready var sun_display = $Panel/Sun
 
 
 func _ready():
@@ -12,10 +18,9 @@ func _ready():
 
 
 func _process(_delta):
-	$Control/Time.text = str("%.2f" % Game.time)
-	$Control/Money.text = str("%.2f" % Game.money)
-	$Control/ProgressBar.value = player.stamina
-	$Control/Panel/Sun.text = str(Game.sun)
+	time.text = str("%.2f" % Game.time)
+	money.text = str("%.2f" % Game.money)
+	sun_display.text = str(Game.sun)
 
 
 func _input(event):
@@ -29,7 +34,7 @@ func _input(event):
 		else:
 			get_tree().paused = false
 			inventory_display.visible = false
-			
+
 
 func _update_display():
 	inventory_display.update()

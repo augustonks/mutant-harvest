@@ -20,6 +20,8 @@ func _input(event):
 	if new_state:
 		change_state(new_state)
 
-func change_state(new_state):
+func change_state(new_state, params := []):
 	current_state = new_state
-	current_state.start()
+	var new_state2 = await current_state.start(params)
+	if new_state2:
+		change_state(new_state2)

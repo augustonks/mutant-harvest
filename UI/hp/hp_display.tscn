@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsfrha3iswtxe"]
+
+[ext_resource type="Script" path="res://UI/hp/hp_display.gd" id="1_imhrd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nimp"]
+bg_color = Color(0.234375, 0.382813, 0.152344, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yjfu"]
+bg_color = Color(0.243137, 0.705882, 0.352941, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.235294, 0.384314, 0.152941, 1)
+
+[node name="HPDisplay" type="ProgressBar"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -292.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_8nimp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5yjfu")
+value = 56.0
+fill_mode = 3
+script = ExtResource("1_imhrd")

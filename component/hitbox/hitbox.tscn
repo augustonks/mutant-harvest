@@ -3,6 +3,8 @@
 [ext_resource type="Script" path="res://component/hitbox/hitbox.gd" id="1_q21yj"]
 
 [node name="Hitbox" type="Area2D"]
+collision_layer = 256
+collision_mask = 512
 script = ExtResource("1_q21yj")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

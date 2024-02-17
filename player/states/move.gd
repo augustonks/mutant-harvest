@@ -3,11 +3,14 @@ extends BaseState
 @export var idle_state: BaseState
 @export var use_tool_state: BaseState
 
+var direction := Vector2.DOWN
+
 func process(_delta):
 	var input_dir := Vector2.ZERO
 	input_dir = Input.get_vector("left", "right", "up", "down")
-
-
+	
+	if input_dir != Vector2.ZERO:
+		direction = input_dir
 	parent.velocity = input_dir * parent.speed
 
 func input(_event):

@@ -19,7 +19,6 @@ var planting := false
 var mouse_pos: Vector2
 
 func _ready():
-	current_item = inventory.selected_item
 	previous_item = current_item
 
 func _process(_delta):
@@ -27,7 +26,7 @@ func _process(_delta):
 		temp_tiles.clear()
 		setting_dir = false
 		planting = false
-#	current_item = inventory.selected_item
+	current_item = inventory.current_item
 #	if previous_item != current_item:
 #		previous_item = current_item
 #		on_item_change()
@@ -43,11 +42,12 @@ func _process(_delta):
 	
 
 func use_tool(tilemap_r):
-	var item = inventory.selected_item
-	if item:
-		match item.type:
+	if current_item:
+		match current_item.type:
 			'tool':
-				tilemap_r.set_terrain(item.name, target_tile)
+				tilemap_r.set_terrain(current_item.name, target_tile)
+			"weapon":
+				pass
 
 func do_action(tilemap_r: TilemapManager):
 	if tilemap_r and tilemap_r.location == "general":

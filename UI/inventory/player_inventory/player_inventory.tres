@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="InventoryData" load_steps=34 format=3 uid="uid://c66an45bbb4yo"]
+[gd_resource type="Resource" script_class="InventoryData" load_steps=35 format=3 uid="uid://c66an45bbb4yo"]
 
 [ext_resource type="Script" path="res://UI/inventory/item_slot.gd" id="2_6brrk"]
 [ext_resource type="Script" path="res://UI/inventory/inventory_data.gd" id="4_1pl1k"]
+[ext_resource type="Resource" uid="uid://cehhhepgswi58" path="res://UI/inventory/item/weapon_sword.tres" id="4_e78lw"]
 [ext_resource type="Resource" uid="uid://bc1h44drtxo4a" path="res://UI/inventory/item/tool_pickaxe.tres" id="11_jrx2f"]
 
 [sub_resource type="Resource" id="Resource_xujfn"]
@@ -11,6 +12,7 @@ quantity = 0
 
 [sub_resource type="Resource" id="Resource_nc2e3"]
 script = ExtResource("2_6brrk")
+item = ExtResource("4_e78lw")
 quantity = 0
 
 [sub_resource type="Resource" id="Resource_mpx7j"]

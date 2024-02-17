@@ -237,6 +237,8 @@ texture = ExtResource("1_7h05v")
 [sub_resource type="TileSet" id="TileSet_fkm2e"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
+custom_data_layer_0/name = "has_ore"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_l7uk5")
 
 [node name="Cave" type="TileMap"]

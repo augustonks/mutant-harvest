@@ -18,7 +18,7 @@ func update():
 		var selection_check = false
 		if i == selection_index:
 			selection_check = true
-			inventory.selected_item = inventory.slots[i].item
+			inventory.current_item = inventory.slots[i].item
 		slots[i - index_start].set_data(inventory.slots[i], selection_check)
 
 func _input(event):

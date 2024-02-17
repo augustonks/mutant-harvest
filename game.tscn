@@ -22,18 +22,20 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
-[node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_ctueo")]
-player = NodePath("../Player")
+[node name="InteractionManager" parent="." instance=ExtResource("5_ggrwd")]
 
-[node name="Fade" type="ColorRect" parent="UI"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("4_ctueo")]
+
+[node name="DialogManager" parent="CanvasLayer" instance=ExtResource("5_32eya")]
+visible = false
+offset_right = 26.0
+mouse_filter = 2
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0)
 offset_right = 320.0
 offset_bottom = 192.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
-
-[node name="DialogManager" parent="UI" instance=ExtResource("5_32eya")]
-visible = false
-mouse_filter = 2
-
-[node name="InteractionManager" parent="." instance=ExtResource("5_ggrwd")]

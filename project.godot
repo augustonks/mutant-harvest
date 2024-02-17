@@ -97,6 +97,8 @@ open_menu={
 2d_physics/layer_6="projectile"
 2d_physics/layer_7="sun"
 2d_physics/layer_8="drop"
+2d_physics/layer_9="hitbox"
+2d_physics/layer_10="hurtbox"
 
 [rendering]
 

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://cehhhepgswi58"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_data.gd" id="1_xf8l0"]
+[ext_resource type="Texture2D" uid="uid://bqkn4y55j6bpc" path="res://UI/inventory/asset/weapon_sword.png" id="2_pjkfh"]
+
+[resource]
+script = ExtResource("1_xf8l0")
+name = "weapon_sword"
+texture = ExtResource("2_pjkfh")
+type = "weapon"
+stockable = false
+properties = {
+"cost": 0,
+"seed_stages": 0
+}

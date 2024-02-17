@@ -1,12 +1,12 @@
 extends Node2D
 class_name HealthComponent
 
-@export var hp = 3
-signal died(parent)
+@export var max_hp := 100
+@export var hp := 100
 
-func damage():
-	hp -= 1
+signal hurt
+
+func damage(hitbox: HitboxComponent):
+	hp -= hitbox.damage
+	emit_signal("hurt", hp, max_hp)
 	
-	if hp == 0:
-		emit_signal("died", get_parent())
-		get_parent().queue_free()

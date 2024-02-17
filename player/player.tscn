@@ -1,16 +1,35 @@
-[gd_scene load_steps=15 format=3 uid="uid://dwxv8b50eqo61"]
+[gd_scene load_steps=22 format=3 uid="uid://dwxv8b50eqo61"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_eyp0r"]
 [ext_resource type="PackedScene" uid="uid://dl65n12uex07w" path="res://UI/inventory/player_inventory/item_manager.tscn" id="2_owb74"]
+[ext_resource type="PackedScene" uid="uid://bj60qwwu0o65i" path="res://component/HealthComponent/health_component.tscn" id="3_3w4yx"]
 [ext_resource type="PackedScene" uid="uid://dabvkfq1d7wpk" path="res://state_machine/state_machine.tscn" id="3_qt1tf"]
 [ext_resource type="Script" path="res://player/states/move.gd" id="4_kfcfi"]
+[ext_resource type="PackedScene" uid="uid://br3x88sjxtke0" path="res://component/hurtbox/hurtbox.tscn" id="4_up14l"]
 [ext_resource type="Script" path="res://player/states/idle.gd" id="5_fky25"]
+[ext_resource type="PackedScene" uid="uid://d2ooaqa006kgx" path="res://component/hitbox/hitbox.tscn" id="5_rc20j"]
 [ext_resource type="Script" path="res://player/states/use_tool.gd" id="6_bu2um"]
 [ext_resource type="PackedScene" uid="uid://dcq4r15u58f37" path="res://component/drop_detector/drop_detector.tscn" id="8_0mytw"]
 [ext_resource type="PackedScene" uid="uid://bhilgeovqrnfn" path="res://player/hit_location.tscn" id="8_8rj4u"]
 [ext_resource type="Resource" uid="uid://c66an45bbb4yo" path="res://UI/inventory/player_inventory/player_inventory.tres" id="9_ac144"]
+[ext_resource type="Script" path="res://player/states/attack.gd" id="9_atf2k"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_bjp7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjobc"]
+size = Vector2(7, 14)
+
+[sub_resource type="BoxMesh" id="BoxMesh_310xl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pygtv"]
+size = Vector2(12, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xp8re"]
+size = Vector2(62, 39)
+
+[sub_resource type="Curve" id="Curve_biy0v"]
+_data = [Vector2(0.00498753, 0), 0.0, 0.0, 0, 0, Vector2(0.369077, 1), 0.0, 0.0, 0, 0, Vector2(0.528678, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="Animation" id="Animation_w32m6"]
 length = 0.001
@@ -44,15 +63,11 @@ _data = {
 "RESET": SubResource("Animation_w32m6")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjobc"]
-size = Vector2(7, 14)
-
-[sub_resource type="BoxMesh" id="BoxMesh_310xl"]
-
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health_component")]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_eyp0r")
+health_component = NodePath("HealthComponent")
 
 [node name="Shadow" type="MeshInstance2D" parent="."]
 modulate = Color(0, 0, 0, 0.164706)
@@ -60,12 +75,45 @@ position = Vector2(-1, 1)
 scale = Vector2(19.0125, 8)
 mesh = SubResource("SphereMesh_bjp7s")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.78814e-06, 0.500002)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_bjobc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(0, -15)
+scale = Vector2(13, 30)
+mesh = SubResource("BoxMesh_310xl")
+
 [node name="ItemManager" parent="." instance=ExtResource("2_owb74")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ai5yl")
-}
+[node name="HealthComponent" parent="." instance=ExtResource("3_3w4yx")]
+
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("health", "hitbox") instance=ExtResource("4_up14l")]
+health = NodePath("../HealthComponent")
+hitbox = NodePath("../Hitbox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -9.5)
+shape = SubResource("RectangleShape2D_pygtv")
+debug_color = Color(0.713726, 0.482353, 0.117647, 0)
+
+[node name="Hitbox" parent="." instance=ExtResource("5_rc20j")]
+visible = false
+position = Vector2(0, -11)
+collision_layer = 258
+damage = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 20.5)
+shape = SubResource("RectangleShape2D_xp8re")
+disabled = true
+debug_color = Color(0.901961, 0.290196, 0.305882, 0.0117647)
+
+[node name="Line2D" type="Line2D" parent="Hitbox"]
+points = PackedVector2Array(31, 1, 31, 11, 29, 18, 26, 25, 22, 30, 16, 35, 10, 38, 3, 39, -3, 39, -8, 37, -14, 35, -19, 31, -23, 27, -27, 20, -30, 11, -30, 1)
+width = 4.0
+width_curve = SubResource("Curve_biy0v")
 
 [node name="StateMachine" parent="." instance=ExtResource("3_qt1tf")]
 
@@ -79,25 +127,29 @@ script = ExtResource("5_fky25")
 move_state = NodePath("../Move")
 use_tool_state = NodePath("../UseTool")
 
-[node name="UseTool" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+[node name="UseTool" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "attack_state")]
 script = ExtResource("6_bu2um")
 idle_state = NodePath("../Idle")
+attack_state = NodePath("../Attack")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.78814e-06, 0.500002)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_bjobc")
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "idle_state", "hitbox")]
+script = ExtResource("9_atf2k")
+move_state = NodePath("../Move")
+idle_state = NodePath("../Idle")
+hitbox = NodePath("../../Hitbox")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ai5yl")
+}
 
 [node name="HitLocation" parent="." node_paths=PackedStringArray("player", "item_manager") instance=ExtResource("8_8rj4u")]
 player = NodePath("..")
 item_manager = NodePath("../ItemManager")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(0, -15)
-scale = Vector2(13, 30)
-mesh = SubResource("BoxMesh_310xl")
-
 [node name="drop_detector" parent="." instance=ExtResource("8_0mytw")]
 inventory = ExtResource("9_ac144")
 
+[editable path="Hurtbox"]
+[editable path="Hitbox"]
 [editable path="drop_detector"]

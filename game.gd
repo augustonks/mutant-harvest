@@ -2,12 +2,10 @@ extends Node2D
 
 var current_area: Node2D
 
-@onready
-var dialog_manager := $UI/DialogManager
-@onready
-var player: Player = $Player
-@onready
-var fade = $UI/Fade
+@onready var dialog_manager := $CanvasLayer/DialogManager
+@onready var player: Player = $Player
+@onready var fade = $CanvasLayer/Fade
+@onready var ui = $CanvasLayer/UI
 
 signal fade_in
 signal fade_out
@@ -15,6 +13,9 @@ signal fade_out
 
 func _ready():
 	randomize()
+	
+	player.health_component.hurt.connect(ui.hp_display.update_hp)
+	
 	current_area = get_child(0)
 	if "game_manager" in current_area:
 		current_area.game_manager = self

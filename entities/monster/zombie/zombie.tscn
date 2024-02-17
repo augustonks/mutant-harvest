@@ -1,12 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://pcsnutxh6iwj"]
+[gd_scene load_steps=13 format=3 uid="uid://pcsnutxh6iwj"]
 
 [ext_resource type="Texture2D" uid="uid://cnri2oj5trhqr" path="res://entities/zombie/asset/zumbi.png" id="1_gqqpd"]
 [ext_resource type="Script" path="res://entities/monster/zombie/zombie.gd" id="1_neju1"]
+[ext_resource type="PackedScene" uid="uid://d2ooaqa006kgx" path="res://component/hitbox/hitbox.tscn" id="3_vywhu"]
+[ext_resource type="PackedScene" uid="uid://br3x88sjxtke0" path="res://component/hurtbox/hurtbox.tscn" id="4_cxsxp"]
+[ext_resource type="PackedScene" uid="uid://bj60qwwu0o65i" path="res://component/HealthComponent/health_component.tscn" id="5_cpcen"]
+[ext_resource type="PackedScene" uid="uid://dabvkfq1d7wpk" path="res://state_machine/state_machine.tscn" id="6_agv1a"]
+[ext_resource type="PackedScene" uid="uid://c7ejvq8kaakkt" path="res://component/pathfinding_component/pathfinding_component.tscn" id="6_k0xun"]
+[ext_resource type="Script" path="res://entities/monster/zombie/states/move.gd" id="7_prst3"]
+[ext_resource type="Script" path="res://entities/monster/zombie/states/knockback.gd" id="9_62a25"]
 
-[node name="Zombie" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxr4o"]
+size = Vector2(12, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eskh7"]
+size = Vector2(22, 32.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_de6rc"]
+size = Vector2(2, 2)
+
+[node name="Zombie" type="CharacterBody2D" node_paths=PackedStringArray("move_state", "knockback_state", "hurtbox", "health_component", "pathfind", "state_machine")]
+collision_layer = 0
 script = ExtResource("1_neju1")
+move_state = NodePath("StateMachine/Move")
+knockback_state = NodePath("StateMachine/Knockback")
+hurtbox = NodePath("Hurtbox")
+health_component = NodePath("HealthComponent")
+pathfind = NodePath("PathFindingComponent")
+state_machine = NodePath("StateMachine")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.5, -13)
 texture = ExtResource("1_gqqpd")
 hframes = 3
 vframes = 3
@@ -14,4 +38,45 @@ vframes = 3
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Hitbox" parent="." instance=ExtResource("3_vywhu")]
+position = Vector2(-0.5, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_kxr4o")
+debug_color = Color(0.713726, 0.482353, 0.117647, 0)
+
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("health", "hitbox") instance=ExtResource("4_cxsxp")]
+position = Vector2(-0.5, -1)
+collision_mask = 2
+health = NodePath("../HealthComponent")
+hitbox = NodePath("../Hitbox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -12.25)
+shape = SubResource("RectangleShape2D_eskh7")
+debug_color = Color(0.901961, 0.290196, 0.305882, 0.0117647)
+
+[node name="HealthComponent" parent="." instance=ExtResource("5_cpcen")]
+max_hp = 10
+hp = 10
+
+[node name="PathFindingComponent" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("6_k0xun")]
+parent = NodePath("..")
+
+[node name="StateMachine" parent="." instance=ExtResource("6_agv1a")]
+
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("pathfind")]
+script = ExtResource("7_prst3")
+pathfind = NodePath("../../PathFindingComponent")
+
+[node name="Knockback" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state")]
+script = ExtResource("9_62a25")
+move_state = NodePath("../Move")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_de6rc")
+
+[connection signal="timeout" from="Timer" to="StateMachine/Move" method="_on_timer_timeout"]
+
+[editable path="Hurtbox"]

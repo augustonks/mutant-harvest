@@ -2,7 +2,7 @@ class_name InventoryData
 extends Resource
 
 @export var slots: Array[ItemSlot]
-var selected_item: ItemData
+var current_item: ItemData
 
 var removing_item = false
 signal update
