@@ -1,3 +1,0 @@
-ItemData
-InventoryData
-Resource
