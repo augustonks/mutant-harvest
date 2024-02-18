@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://pcsnutxh6iwj"]
+[gd_scene load_steps=24 format=3 uid="uid://pcsnutxh6iwj"]
 
 [ext_resource type="Texture2D" uid="uid://cnri2oj5trhqr" path="res://entities/zombie/asset/zumbi.png" id="1_gqqpd"]
 [ext_resource type="Script" path="res://entities/monster/zombie/zombie.gd" id="1_neju1"]
@@ -7,8 +7,73 @@
 [ext_resource type="PackedScene" uid="uid://bj60qwwu0o65i" path="res://component/HealthComponent/health_component.tscn" id="5_cpcen"]
 [ext_resource type="PackedScene" uid="uid://dabvkfq1d7wpk" path="res://state_machine/state_machine.tscn" id="6_agv1a"]
 [ext_resource type="PackedScene" uid="uid://c7ejvq8kaakkt" path="res://component/pathfinding_component/pathfinding_component.tscn" id="6_k0xun"]
+[ext_resource type="PackedScene" uid="uid://g0oqugud0s4" path="res://component/knockback/knockback_component.tscn" id="7_6umop"]
 [ext_resource type="Script" path="res://entities/monster/zombie/states/move.gd" id="7_prst3"]
-[ext_resource type="Script" path="res://entities/monster/zombie/states/knockback.gd" id="9_62a25"]
+[ext_resource type="Script" path="res://state_machine/global_states/knockback.gd" id="10_pm7c5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4bb2"]
+atlas = ExtResource("1_gqqpd")
+region = Rect2(0, 0, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nrli"]
+atlas = ExtResource("1_gqqpd")
+region = Rect2(21, 0, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w2bq"]
+atlas = ExtResource("1_gqqpd")
+region = Rect2(42, 0, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ycwt"]
+atlas = ExtResource("1_gqqpd")
+region = Rect2(0, 34, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2wem"]
+atlas = ExtResource("1_gqqpd")
+region = Rect2(21, 34, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqdvf"]
+atlas = ExtResource("1_gqqpd")
+region = Rect2(42, 34, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdjcc"]
+atlas = ExtResource("1_gqqpd")
+region = Rect2(0, 68, 21, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltsom"]
+atlas = ExtResource("1_gqqpd")
+region = Rect2(21, 68, 21, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2snpr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4bb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nrli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w2bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ycwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2wem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqdvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdjcc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltsom")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kxr4o"]
 size = Vector2(12, 20)
@@ -17,7 +82,9 @@ size = Vector2(12, 20)
 size = Vector2(22, 32.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_de6rc"]
-size = Vector2(2, 2)
+size = Vector2(8, 8)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0n6br"]
 
 [node name="Zombie" type="CharacterBody2D" node_paths=PackedStringArray("move_state", "knockback_state", "hurtbox", "health_component", "pathfind", "state_machine")]
 collision_layer = 0
@@ -29,11 +96,11 @@ health_component = NodePath("HealthComponent")
 pathfind = NodePath("PathFindingComponent")
 state_machine = NodePath("StateMachine")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.5, -13)
-texture = ExtResource("1_gqqpd")
-hframes = 3
-vframes = 3
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, -11)
+sprite_frames = SubResource("SpriteFrames_2snpr")
+autoplay = "default"
+flip_h = true
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -64,18 +131,29 @@ hp = 10
 [node name="PathFindingComponent" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("6_k0xun")]
 parent = NodePath("..")
 
+[node name="KnockbackComponent" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("7_6umop")]
+parent = NodePath("..")
+
 [node name="StateMachine" parent="." instance=ExtResource("6_agv1a")]
 
 [node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("pathfind")]
 script = ExtResource("7_prst3")
 pathfind = NodePath("../../PathFindingComponent")
 
-[node name="Knockback" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state")]
-script = ExtResource("9_62a25")
+[node name="Knockback" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "knockback_component")]
+script = ExtResource("10_pm7c5")
 move_state = NodePath("../Move")
+knockback_component = NodePath("../../KnockbackComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_de6rc")
+
+[node name="Shadow" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 0, 0.243137)
+show_behind_parent = true
+position = Vector2(-1, 2)
+scale = Vector2(17.5198, 5.875)
+mesh = SubResource("SphereMesh_0n6br")
 
 [connection signal="timeout" from="Timer" to="StateMachine/Move" method="_on_timer_timeout"]
 

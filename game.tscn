@@ -12,6 +12,7 @@ y_sort_enabled = true
 script = ExtResource("1_qwic1")
 
 [node name="CaveManager" parent="." instance=ExtResource("2_3ut3k")]
+y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_t5t1w")]
 position = Vector2(376, 352)

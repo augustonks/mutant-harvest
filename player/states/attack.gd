@@ -8,9 +8,6 @@ func start(_params):
 
 	parent.velocity = Vector2.ZERO
 	var direction = move_state.direction
-	
-	
-	print(direction)
 
 	var angle = calculate_primary_direction(direction)
 	angle = fmod(angle, 360)
@@ -23,10 +20,9 @@ func start(_params):
 
 	return idle_state
 
+
 func calculate_primary_direction(direction: Vector2):
 	if direction.x == 0:
 		return atan2(direction.y, direction.x) * 180 / PI - 90
-	elif abs(direction.x) > abs(direction.y):
-		return atan2(0, direction.x) * 180 / PI - 90
 	else:
 		return atan2(0, direction.x) * 180 / PI - 90

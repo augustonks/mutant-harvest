@@ -7,11 +7,19 @@ extends CharacterBody2D
 @export var pathfind: PathFindingComponent
 @export var state_machine: StateMachine
 
+@onready var animated_sprite := $AnimatedSprite2D
+
+var target: Player
+
+
 func _ready():
 	hurtbox.hitbox_entered.connect(knockback)
+	pathfind.next_point_signal.connect(set_flip_h)
+
 
 func set_data(tilemap, ptarget):
 	pathfind.set_grid(tilemap, ptarget)
+	target = ptarget
 
 	var wall_layer = tilemap.layer.wall
 	for tile in tilemap.get_used_cells(wall_layer):
@@ -26,13 +34,25 @@ func set_data(tilemap, ptarget):
 			pathfind.set_path())
 
 
-func _process(delta):
+func _process(_delta):
 	if health_component.hp <= 0:
 		queue_free()
 
 
-func _physics_process(delta): 
+func _physics_process(_delta):
+	if velocity != Vector2.ZERO:
+		animated_sprite.play("default")
+	else:
+		animated_sprite.stop()
 	move_and_slide()
+
+
+func set_flip_h():
+	if target:
+		if target.global_position.x > global_position.x:
+			animated_sprite.flip_h = true
+		elif target.global_position.x < global_position.x:
+			animated_sprite.flip_h = false
 
 
 func knockback(hit):

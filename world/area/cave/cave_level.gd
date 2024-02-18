@@ -6,7 +6,8 @@ var player: Player
 var level := 0
 
 var enemies = [
-	"res://entities/monster/zombie/zombie.tscn"
+	"res://entities/monster/zombie/zombie.tscn",
+	"res://entities/monster/eye_bat/eye_bat.tscn",
 ]
 
 @onready
@@ -18,7 +19,6 @@ func _ready():
 		if level > 1:
 			set_enemies()
 
-
 func set_enemies():
 	var map_size = tilemap.map_size
 	for i in map_size:
@@ -28,8 +28,9 @@ func set_enemies():
 		if can_spawn:
 			var rand = randf()
 			if rand < .01:
-				var pre_monster = load(enemies[0])
+				var rand_monster = randi_range(0, enemies.size() - 1)
+				var pre_monster = load(enemies[rand_monster])
 				var monster = pre_monster.instantiate()
 				add_child(monster)
-				monster.global_position = i * 16
+				monster.global_position = Vector2(i) * 16 + Vector2(8, 8)
 				monster.set_data(tilemap, player)

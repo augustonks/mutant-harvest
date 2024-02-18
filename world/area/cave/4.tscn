@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c3x1d20irtxyu" path="res://world/general_tilemap.tscn" id="2_403p1"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("tilemap")]
+y_sort_enabled = true
 script = ExtResource("1_eqts7")
 tilemap = NodePath("Cave")
 area_limit = {

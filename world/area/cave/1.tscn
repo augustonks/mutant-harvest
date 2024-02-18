@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://babb6o55oivk3" path="res://world/buildings/elevator.png" id="4_ilnq1"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("tilemap")]
+y_sort_enabled = true
 script = ExtResource("1_d7lqk")
 tilemap = NodePath("Cave")
 area_limit = {

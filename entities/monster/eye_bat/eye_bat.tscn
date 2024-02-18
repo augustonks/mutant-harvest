@@ -1,0 +1,144 @@
+[gd_scene load_steps=22 format=3 uid="uid://c7i6e0no7icsm"]
+
+[ext_resource type="Script" path="res://entities/monster/eye_bat/eye_bat.gd" id="1_uhra5"]
+[ext_resource type="PackedScene" uid="uid://d2ooaqa006kgx" path="res://component/hitbox/hitbox.tscn" id="2_rfwu0"]
+[ext_resource type="PackedScene" uid="uid://br3x88sjxtke0" path="res://component/hurtbox/hurtbox.tscn" id="3_yn5em"]
+[ext_resource type="PackedScene" uid="uid://bj60qwwu0o65i" path="res://component/HealthComponent/health_component.tscn" id="4_0qtb6"]
+[ext_resource type="PackedScene" uid="uid://g0oqugud0s4" path="res://component/knockback/knockback_component.tscn" id="5_467rp"]
+[ext_resource type="PackedScene" uid="uid://dabvkfq1d7wpk" path="res://state_machine/state_machine.tscn" id="5_tnrmj"]
+[ext_resource type="Script" path="res://entities/monster/eye_bat/states/move.gd" id="6_cato7"]
+[ext_resource type="Script" path="res://state_machine/global_states/knockback.gd" id="7_8fl0y"]
+[ext_resource type="Texture2D" uid="uid://bhkgtvqspg66x" path="res://entities/monster/eye_bat/morcego olho.png" id="9_0cqin"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tku73"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pah7"]
+atlas = ExtResource("9_0cqin")
+region = Rect2(0, 0, 30, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ui77k"]
+atlas = ExtResource("9_0cqin")
+region = Rect2(60, 0, 30, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5wv3"]
+atlas = ExtResource("9_0cqin")
+region = Rect2(90, 0, 30, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsrbl"]
+atlas = ExtResource("9_0cqin")
+region = Rect2(30, 0, 30, 13)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1bicq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pah7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ui77k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5wv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ui77k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsrbl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_s1c2t"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_faa0s"]
+resource_name = "default"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4s41q"]
+_data = {
+"RESET": SubResource("Animation_s1c2t"),
+"default": SubResource("Animation_faa0s")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ei2sg"]
+size = Vector2(12, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qq6ls"]
+size = Vector2(22, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvw8g"]
+size = Vector2(8, 8)
+
+[node name="EyeBat" type="CharacterBody2D" node_paths=PackedStringArray("move_state", "knockback_state", "state_machine", "hurtbox", "health_component")]
+z_index = 1
+script = ExtResource("1_uhra5")
+move_state = NodePath("StateMachine/Move")
+knockback_state = NodePath("StateMachine/Knockback")
+state_machine = NodePath("StateMachine")
+hurtbox = NodePath("Hurtbox")
+health_component = NodePath("HealthComponent")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="."]
+modulate = Color(0, 0, 0, 0.2)
+position = Vector2(8.9407e-08, 8.34465e-07)
+scale = Vector2(10.0113, 6)
+mesh = SubResource("SphereMesh_tku73")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_1bicq")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+libraries = {
+"": SubResource("AnimationLibrary_4s41q")
+}
+
+[node name="Hitbox" parent="." instance=ExtResource("2_rfwu0")]
+position = Vector2(-0.5, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ei2sg")
+debug_color = Color(0.713726, 0.482353, 0.117647, 0)
+
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("health", "hitbox") instance=ExtResource("3_yn5em")]
+position = Vector2(-0.5, -1)
+collision_mask = 2
+health = NodePath("../HealthComponent")
+hitbox = NodePath("../Hitbox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0.5, -5.5)
+shape = SubResource("RectangleShape2D_qq6ls")
+debug_color = Color(0.901961, 0.290196, 0.305882, 0.0117647)
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_0qtb6")]
+position = Vector2(-0.5, -1)
+max_hp = 10
+hp = 10
+
+[node name="KnockbackComponent" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("5_467rp")]
+parent = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qvw8g")
+disabled = true
+
+[node name="StateMachine" parent="." instance=ExtResource("5_tnrmj")]
+
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("knockback_state")]
+script = ExtResource("6_cato7")
+knockback_state = NodePath("../Knockback")
+
+[node name="Knockback" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "knockback_component")]
+script = ExtResource("7_8fl0y")
+move_state = NodePath("../Move")
+knockback_component = NodePath("../../KnockbackComponent")
+
+[editable path="Hurtbox"]
