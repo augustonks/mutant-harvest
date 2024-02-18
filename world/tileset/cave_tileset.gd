@@ -9,17 +9,12 @@ var layer = {
 	"ore_spawn": 2,
 }
 
-signal ladder_added
-
 var ore_manager = preload("res://entities/ore/ore_manager.tscn")
 
 @onready var map_size = get_used_cells(2)
 
-#func _ready():
-#	for i in get_tree().get_nodes_in_group("ore"):
-#		ores.append(i)
-#		i.tile_position = local_to_map(i.global_position)
-#		i.connect("destroyed", remove_ore)
+signal ladder_added
+
 
 func set_ore():
 	for i in map_size:

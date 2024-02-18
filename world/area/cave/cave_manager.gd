@@ -1,11 +1,13 @@
-extends AreaBase
+class_name AreaManager
+extends Node2D
 
+var tilemap
 var game_manager
 var player
 var level := 0
 
 @onready
-var current_room = get_child(0)
+var current_room: AreaBase = get_child(0)
 var rooms := [
 	"res://world/area/cave/0.tscn",
 	"res://world/area/cave/1.tscn",
@@ -19,8 +21,6 @@ func _ready():
 		tilemap = current_room.tilemap
 	else:
 		print("Nível de caverna não possui tilemap")
-	await get_tree().create_timer(.2).timeout
-	game_manager.set_player_camera_limit(current_room)
 
 # Lida com a progressão de níveis na caverna
 func go_to_next_level():
@@ -28,9 +28,6 @@ func go_to_next_level():
 	game_manager.transition_fade()
 	
 	await game_manager.fade_in
-	
-	if player.tilemap:
-		player.tilemap = null
 	
 	# Remove nível atual
 	current_room.queue_free()
@@ -53,10 +50,9 @@ func go_to_next_level():
 	add_child(current_room)
 
 	tilemap = current_room.tilemap
-	player.tilemap = current_room.tilemap
 
 	player.global_position = current_room.initial_position
-	game_manager.set_player_camera_limit(current_room)
+	game_manager.configure_scene()
 
 	# Conecta o ponto de interação de uma escada gerada com
 	# o Game Manager, assim, é possível interagir com ela e

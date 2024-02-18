@@ -10,9 +10,6 @@ var frame_index = 0
 var tile_position: Vector2i
 var hp: int
 
-signal ladder_added
-signal destroyed
-
 var ores = [
 	{"rock0": 0,
 	 "probability": 0.125, "hp": 1, "drop_amount": 1,
@@ -47,6 +44,9 @@ var ores = [
 var sprite = $Sprite2D
 @onready
 var animation_player = $AnimationPlayer
+
+signal ladder_added
+signal destroyed
 
 func _ready():
 	var rand = randf()
