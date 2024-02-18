@@ -26,4 +26,4 @@ layer_0/tile_data = PackedInt32Array(1310745, 720896, 22, 1245209, 393216, 21, 1
 location = null
 
 [node name="InitialPosition" type="Marker2D" parent="."]
-position = Vector2(360, 135)
+position = Vector2(360, 141)

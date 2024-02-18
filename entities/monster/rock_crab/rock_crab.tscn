@@ -1,0 +1,184 @@
+[gd_scene load_steps=26 format=3 uid="uid://dk0e2puqvxaer"]
+
+[ext_resource type="Texture2D" uid="uid://dq780ejt0rdoc" path="res://entities/monster/rock_crab/rock crab.png" id="1_763uc"]
+[ext_resource type="Script" path="res://entities/monster/rock_crab/rock_crab.gd" id="1_pcv71"]
+[ext_resource type="PackedScene" uid="uid://d2ooaqa006kgx" path="res://component/hitbox/hitbox.tscn" id="2_drdmf"]
+[ext_resource type="PackedScene" uid="uid://br3x88sjxtke0" path="res://component/hurtbox/hurtbox.tscn" id="3_tx2h5"]
+[ext_resource type="PackedScene" uid="uid://bj60qwwu0o65i" path="res://component/HealthComponent/health_component.tscn" id="4_7pc28"]
+[ext_resource type="PackedScene" uid="uid://c7ejvq8kaakkt" path="res://component/pathfinding_component/pathfinding_component.tscn" id="5_sjo1r"]
+[ext_resource type="PackedScene" uid="uid://g0oqugud0s4" path="res://component/knockback/knockback_component.tscn" id="6_itkco"]
+[ext_resource type="PackedScene" uid="uid://dabvkfq1d7wpk" path="res://state_machine/state_machine.tscn" id="7_ggclg"]
+[ext_resource type="Script" path="res://entities/monster/rock_crab/states/spawn.gd" id="9_dmqqt"]
+[ext_resource type="Script" path="res://state_machine/global_states/knockback.gd" id="9_ph6w8"]
+[ext_resource type="Script" path="res://entities/monster/rock_crab/states/move.gd" id="10_eojwh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1w1a"]
+atlas = ExtResource("1_763uc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qnh5e"]
+atlas = ExtResource("1_763uc")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yolm0"]
+atlas = ExtResource("1_763uc")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qfsk"]
+atlas = ExtResource("1_763uc")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x1my"]
+atlas = ExtResource("1_763uc")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytkys"]
+atlas = ExtResource("1_763uc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udyyp"]
+atlas = ExtResource("1_763uc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bojb"]
+atlas = ExtResource("1_763uc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_duab5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1w1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qnh5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yolm0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qfsk")
+}],
+"loop": true,
+"name": &"move",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_0x1my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytkys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udyyp")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_0bojb")
+}],
+"loop": false,
+"name": &"spawn",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa20o"]
+size = Vector2(14, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqcnc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vyjjf"]
+radius = 21.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_15ljm"]
+radius = 119.105
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3qrm"]
+size = Vector2(8, 8)
+
+[node name="RockCrab" type="CharacterBody2D" node_paths=PackedStringArray("idle_state", "player_detector", "move_state", "knockback_state", "hurtbox", "health_component", "pathfind", "state_machine", "animated_sprite")]
+script = ExtResource("1_pcv71")
+idle_state = NodePath("StateMachine/Idle")
+player_detector = NodePath("PlayerDetector")
+move_state = NodePath("StateMachine/Move")
+knockback_state = NodePath("StateMachine/Knockback")
+hurtbox = NodePath("Hurtbox")
+health_component = NodePath("HealthComponent")
+pathfind = NodePath("PathFindingComponent")
+state_machine = NodePath("StateMachine")
+animated_sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_duab5")
+animation = &"spawn"
+
+[node name="Hitbox" parent="." instance=ExtResource("2_drdmf")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qa20o")
+debug_color = Color(0.976471, 0.14902, 0, 0)
+
+[node name="Hurtbox" parent="." node_paths=PackedStringArray("health", "hitbox") instance=ExtResource("3_tx2h5")]
+collision_mask = 2
+health = NodePath("../HealthComponent")
+hitbox = NodePath("../Hitbox")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_nqcnc")
+debug_color = Color(0.776471, 0.439216, 0.0823529, 0)
+
+[node name="HealthComponent" parent="." instance=ExtResource("4_7pc28")]
+max_hp = 10
+hp = 10
+
+[node name="PathFindingComponent" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("5_sjo1r")]
+parent = NodePath("..")
+
+[node name="KnockbackComponent" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("6_itkco")]
+parent = NodePath("..")
+
+[node name="StateMachine" parent="." instance=ExtResource("7_ggclg")]
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("animated_sprite", "move_state", "player_detector")]
+script = ExtResource("9_dmqqt")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+move_state = NodePath("../Move")
+player_detector = NodePath("../../PlayerDetector")
+
+[node name="Move" type="Node" parent="StateMachine" node_paths=PackedStringArray("pathfind", "animated_sprite")]
+script = ExtResource("10_eojwh")
+pathfind = NodePath("../../PathFindingComponent")
+animated_sprite = NodePath("../../AnimatedSprite2D")
+
+[node name="Knockback" type="Node" parent="StateMachine" node_paths=PackedStringArray("move_state", "knockback_component")]
+script = ExtResource("9_ph6w8")
+move_state = NodePath("../Move")
+knockback_component = NodePath("../../KnockbackComponent")
+
+[node name="PathUpdate" type="Timer" parent="."]
+autostart = true
+
+[node name="PlayerEnterArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerEnterArea"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_vyjjf")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_15ljm")
+debug_color = Color(1, 1, 1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_m3qrm")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="StateMachine/Idle" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="PathUpdate" to="StateMachine/Move" method="_on_timer_timeout"]
+[connection signal="body_entered" from="PlayerEnterArea" to="." method="_on_player_enter_area_body_entered"]

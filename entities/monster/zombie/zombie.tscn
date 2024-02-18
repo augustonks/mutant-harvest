@@ -86,7 +86,7 @@ size = Vector2(8, 8)
 
 [sub_resource type="SphereMesh" id="SphereMesh_0n6br"]
 
-[node name="Zombie" type="CharacterBody2D" node_paths=PackedStringArray("move_state", "knockback_state", "hurtbox", "health_component", "pathfind", "state_machine")]
+[node name="Zombie" type="CharacterBody2D" node_paths=PackedStringArray("move_state", "knockback_state", "hurtbox", "health_component", "pathfind", "state_machine", "animated_sprite")]
 collision_layer = 0
 script = ExtResource("1_neju1")
 move_state = NodePath("StateMachine/Move")
@@ -95,9 +95,12 @@ hurtbox = NodePath("Hurtbox")
 health_component = NodePath("HealthComponent")
 pathfind = NodePath("PathFindingComponent")
 state_machine = NodePath("StateMachine")
+animated_sprite = NodePath("AnimationFlip/AnimatedSprite2D")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2, -11)
+[node name="AnimationFlip" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimationFlip"]
+position = Vector2(2, -11)
 sprite_frames = SubResource("SpriteFrames_2snpr")
 autoplay = "default"
 flip_h = true

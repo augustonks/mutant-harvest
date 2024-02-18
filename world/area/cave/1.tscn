@@ -33,9 +33,8 @@ location = "cave"
 location = null
 
 [node name="Elevator" type="Sprite2D" parent="."]
-z_index = -1
 position = Vector2(159, -54)
 texture = ExtResource("4_ilnq1")
 
 [node name="InitialPosition" type="Marker2D" parent="."]
-position = Vector2(160, 32)
+position = Vector2(160, 40)

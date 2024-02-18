@@ -81,7 +81,7 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_bjobc")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-position = Vector2(0, -15)
+position = Vector2(0, -11)
 scale = Vector2(13, 30)
 mesh = SubResource("BoxMesh_310xl")
 

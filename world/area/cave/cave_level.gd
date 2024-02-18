@@ -8,6 +8,7 @@ var level := 0
 var enemies = [
 	"res://entities/monster/zombie/zombie.tscn",
 	"res://entities/monster/eye_bat/eye_bat.tscn",
+	"res://entities/monster/rock_crab/rock_crab.tscn",
 ]
 
 @onready

@@ -1,9 +1,12 @@
 extends Node
 class_name BaseState
 
-@onready var state_machine = get_parent()
-var parent
+
 var next_state: BaseState
+var running := false
+
+var parent
+@onready var state_machine: StateMachine = get_parent()
 
 func start(params):
 	pass
